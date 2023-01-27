@@ -57,7 +57,7 @@ function NavBar() {
             </ul>
             
             <NavLink
-                to="#"
+                to="/download"
                 className="hidden md:inline-flex ml-8 md:ml-10 items-center justify-center whitespace-nowrap rounded-md border 
                           border-transparent bg-primary-100 px-6 py-2 text-base font-medium text-white 
                           shadow-sm hover:bg-primary-200 uppercase transition-all"

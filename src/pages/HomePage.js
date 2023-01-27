@@ -7,7 +7,7 @@ function HomePage() {
   return (
     <div>
         <NavBar />
-        <div className='h-[88px]'></div>
+        <div className='h-[96px]'></div>
         
         <div className='hero w-full bg-white px-6 md:px-16 py-20 md:py-40 xl:px-40 3xl:px-60'>
           <div className='text-4xl md:text-5xl xl:text-6xl 2xl:text-7xl 3xl:text-8xl max-w-sm md:max-w-lg xl:max-w-xl 2xl:max-w-4xl leading-[45px] text-primary-200 font-bold'>
