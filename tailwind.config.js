@@ -4,7 +4,9 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        "3xl": "2560px"
+        "3xl": "2560px",
+        'hsm': { 'raw': '(min-height: 770px)' },
+        'hxs': { 'raw': '(min-height: 1000px)' }
       },
       colors: {
         "background": "#e4e4e4",
@@ -17,8 +19,8 @@ module.exports = {
           "100": "#f09f07"
         },
         navbar: {
-          "scroll": "rgba(255,255,255,0.7)",
-          "border-scroll": "rgba(255,255,255,0.7)"
+          "scroll": "rgba(228,228,228,0.7)",
+          "border-scroll": "rgba(228,228,228,0.7)"
         }
       }
     },

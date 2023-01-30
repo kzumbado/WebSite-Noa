@@ -1,20 +1,19 @@
 import DownloadCard from "../components/DownloadCard"
 import Footer from "../components/Footer"
 import NavBar from "../components/NavBar"
-
-
+import WhyChooseUs from "../components/WhyChooseUs"
 
 const Download = () => {
   return (
 
     <>
 
-    <NavBar/>
+    <NavBar activeLink={'/download'}/>
         <div className='h-[96px]'></div>
 
        <DownloadCard/>
     
-
+      <WhyChooseUs/>
 
     
         <Footer />

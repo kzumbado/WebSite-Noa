@@ -1,15 +1,14 @@
-import {AiFillApple} from 'react-icons/ai'
-import {FaGooglePlay} from 'react-icons/fa'
+import {FaGooglePlay, FaApple} from 'react-icons/fa';
 
 
 const DownloadCard = () => {
   return (
 
-    <div className='py-5 items-center flex flex-col w-full h-auto md:flex-row bg-red-500 md:justify-center' >
+    <div className='items-center flex flex-col w-full h-auto md:flex-row md:justify-center px-6 md:px-16 py-20 md:py-30 xl:px-40 3xl:px-60' >
 
 
-        <div className="w-auto h-autoflex flex-col bg-white items-center ">
-            <div className='pl-4 w-full text-4xl md:text-5xl xl:text-6xl 2xl:text-4xl 3xl:text-8xl max-w-sm md:max-w-lg xl:max-w-xl 2xl:max-w-4xl leading-[45px] text-primary-100 font-bold '>
+        <div className="w-full h-autoflex flex-col items-center">
+            <div className='w-full text-4xl md:text-5xl xl:text-6xl 2xl:text-7xl 3xl:text-8xl max-w-sm md:max-w-lg xl:max-w-xl 2xl:max-w-4xl leading-[45px] font-bold bg-gradient-to-bl from-primary-100 via-primary-200 to-secondary-100 text-transparent bg-clip-text'>
              The world's<br/> 
              most powerful<br/> 
             crypto app
@@ -18,25 +17,25 @@ const DownloadCard = () => {
             Tempor tempor exercitation proident id exercitation consequat aliqua. Commodo irure ad incididunt sit tempor. 
             </p>      
 
-            <div className=" pl-10 flex flex-row w-full h-[90px] space-x-4 items-center ">
+            <div className="flex flex-row w-full h-[90px] space-x-4 items-center ">
                 <a  href="/">
-                <div className="flex flex-row w-32 h-[40px] bg-black rounded-lg">
-                    <AiFillApple className="w-9 h-9 text-white"/>
-                    <div className="pl-1  flex flex-col text-[10px] text-white">
-                        Download on the
-                        <span className="text-base">
+                    <div className="flex flex-row w-32 xl:w-36 h-[40px] xl:h-[44px] bg-black rounded-lg items-center px-1 hover:bg-gray-800">
+                        <FaApple className="px-1 w-7 h-7 text-white xl:h-8 xl:w-8"/>
+                        <div className="pl-1  flex flex-col text-[10px] text-white xl:text-[12px]">
+                            Download on the
+                            <span className="text-base -mt-1">
                             AppStore
-                        </span>
+                            </span>
+                        </div>
                     </div>
-                </div>
                 </a>
 
                 <a  href="/">
-                    <div className="flex flex-row w-32 h-[40px] bg-black rounded-lg">
-                        <FaGooglePlay className="pt-2 pl-1 w-7 h-7 text-white"/>
-                        <div className="flex flex-col text-[10px] text-white">
+                    <div className="flex flex-row w-32 xl:w-36 h-[40px] xl:h-[44px] bg-black rounded-lg items-center px-1 hover:bg-gray-800">
+                        <FaGooglePlay className="px-1 w-7 h-7 text-white xl:h-8 xl:w-8"/>
+                        <div className="flex flex-col text-[10px] text-white xl:text-[12px]">
                              Get it on
-                            <span className="text-base">
+                            <span className="text-base -mt-1">
                             Google Play
                             </span>
                         </div>
@@ -45,19 +44,11 @@ const DownloadCard = () => {
             </div>
         </div>
 
-        <div className="bg-slate-900 h-auto w-fit rounded ">
-
-            <img className='px-4 py-4 h-80 w-80'  src='https://toppng.com/uploads/preview/download-draw-a-iphone-x-11563139760oc1vgqtfgw.png'/>
-           
-
+        <div className='w-full flex justify-center md:justify-end mt-6'>
+            <div className="bg-gradient-to-bl from-primary-100 via-primary-200 to-secondary-100 h-auto w-2/3 max-w-lg rounded-3xl flex justify-center ">
+                <img className='h-auto w-full'  src='https://claroperupoc.vtexassets.com/arquivos/ids/318338/Apple-iPhone-11-Negro--2-.png?v=638007807583700000' alt='iphone'/>
+            </div>
         </div>
-    
-
-
-
-
-
-
 
     </div>
 

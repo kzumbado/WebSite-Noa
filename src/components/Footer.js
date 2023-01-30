@@ -9,7 +9,7 @@ function Footer() {
 
                 <div className='text-orange-200 w-auto flex flex-col justify-center items-center font-semibold'>
                     <div>
-                        LOGO Noa
+                        LOGO Bios
                     </div>
                     
                     <div className='text-gray-300 opacity-40 pt-1 text-sm font-light text-center'>
@@ -39,7 +39,7 @@ function Footer() {
             
             <ul className='w-full justify-end flex space-x-5 md:space-x-8 items-start'>
                 <li>
-                    <NavLink className='text-orange-200 uppercase text-sm md:text-base opacity-70 hover:opacity-100'>
+                    <NavLink to={'/'} className='text-orange-200 uppercase text-sm md:text-base opacity-70 hover:opacity-100'>
                         Inicio
                     </NavLink>
                 </li>
@@ -50,7 +50,7 @@ function Footer() {
                 </li>
 
                 <li>
-                    <NavLink className='text-orange-200 uppercase text-sm md:text-base opacity-70 hover:opacity-100'>
+                    <NavLink to={'/aboutus'} className='text-orange-200 uppercase text-sm md:text-base opacity-70 hover:opacity-100'>
                         Nosotros
                     </NavLink>
                 </li>
@@ -66,7 +66,7 @@ function Footer() {
         </div>
 
         <div className='flex flex-row w-full text-gray-400 justify-center h-10 pt-2 px-6 md:px-16 xl:px-40 3xl:px-60 opacity-50'>
-            © 2023 Noa - All Rights Reserved.
+            © 2023 Bios - All Rights Reserved.
         </div>
         
     </footer>
