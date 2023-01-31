@@ -1,10 +1,14 @@
 import React from 'react';
 import NavBar from "../components/NavBar";
 import Footer from '../components/Footer';
-import VideoDisplay from '../components/VideoDisplay';
 import {NavLink} from 'react-router-dom';
 import {FaTwitter, FaInstagram} from 'react-icons/fa';
 import {AiOutlineGithub} from 'react-icons/ai';
+import VideoDisplay from '../components/VideoDisplay';
+
+// const LazyVideoDisplay = React.lazy(() => import('../components/VideoDisplay') )
+
+
 
 function HomePage() {
   return (
@@ -12,7 +16,7 @@ function HomePage() {
         <NavBar activeLink={'/'} />
         <div className='h-[96px]'></div>
         
-        <div className='hero w-full bg-background px-6 md:px-16 py-20 md:py-40 xl:px-40 3xl:px-60 flex flex-col lg:flex-row lg:items-center '>
+        <div className='hero w-full bg-background px-6 md:px-16 py-20 md:py-40 xl:px-40 3xl:px-60 flex flex-col lg:flex-row lg:items-center lg:justify-evenly'>
           <div className='w-full'>
             <div className='text-4xl md:text-5xl xl:text-6xl 2xl:text-7xl 3xl:text-8xl max-w-sm md:max-w-lg xl:max-w-xl 2xl:max-w-4xl leading-[45px] text-primary-200 font-bold'>
               El futuro de los comercios. <span className='text-primary-100'>Ahora.</span>
@@ -30,9 +34,9 @@ function HomePage() {
               Leer más
             </NavLink>
           </div>
-          
 
-          <VideoDisplay/>
+          <VideoDisplay />
+
         </div>
 
         
