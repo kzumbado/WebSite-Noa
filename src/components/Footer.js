@@ -74,7 +74,7 @@ function Footer() {
         </div>
 
         <div className='flex flex-row w-full text-gray-400 justify-center h-10 pt-2 px-6 md:px-16 xl:px-40 3xl:px-60 opacity-50'>
-            © 2023 Bios - All Rights Reserved.
+            {t("footer.rights")}
         </div>
         
     </footer>
