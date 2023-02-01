@@ -1,0 +1,65 @@
+{
+
+    "navbar":{
+        "home":"Inicio",
+        "contact":"Contacto",
+        "aboutUs":"Nosotros",
+        "download":"Descargar"
+
+    },
+    "footer":{
+        "home":"Inicio",
+        "contact":"Contacto",
+        "aboutUs":"Nosotros",
+        "phrase":"Mejorando el futuro"
+    },
+    "home":{
+        "title":"El futuro de los comercios.",
+        "now":"Ahora.",
+        "h-paragraph":"Últimamente, una idea popular era que los líderes se enfocaran en el desarrollo de sus fortalezas y excluyeran sus debilidades. ¿En qué casos es esto un buen consejo? Para los grupos dos y tres, o para aquellos líderes que no poseen debilidades devaluadoras.",
+        "readMore":"Leer más",
+        "team":"Conoce a nuestro Equipo"
+    },
+
+    "download":{
+        "title":"La app de crypto mas poderosa del mundo",
+        "paragraph":"La aplicacion mas poderosa del mundo ya esta disponible en Apple Store y Google Play, presiona en el enlance",
+        "appStore":"Descarga en la",
+        "Google":"Obtener en",
+        "why":"¿Por que nosotros?",
+        "crytography":"Usa la criptografía para asegurar las transacciones en línea. Gran parte del interés en estas.",
+        "security":"Seguridad por defecto",
+        "privacy":"Activa el modo seguridad y para proteger tus datos.",
+        "morefocus":"Mejor enfoque en IU",
+        "ensure":"Ingresa tus datos garantizar sus datos seguros"
+    },
+    "aboutUs":{
+        "we":"Nosotros",
+        "history":"Historia",
+        "h-paragraph":"Últimamente, una idea popular era que los líderes se enfocaran en el desarrollo de sus fortalezas y excluyeran sus debilidades. ¿En qué casos es esto un buen consejo? Para los grupos dos y tres, o para aquellos líderes que no poseen debilidades devaluadoras.",
+        "vision":"Vision",
+        "v-paragraph":"Últimamente, una idea popular era que los líderes se enfocaran en el desarrollo de sus fortalezas y excluyeran sus debilidades. ¿En qué casos es esto un buen consejo? Para los grupos dos y tres, o para aquellos líderes que no poseen debilidades devaluadoras.",
+        "mission":"Mision",
+        "m-paragraph":"Últimamente, una idea popular era que los líderes se enfocaran en el desarrollo de sus fortalezas y excluyeran sus debilidades. ¿En qué casos es esto un buen consejo? Para los grupos dos y tres, o para aquellos líderes que no poseen debilidades devaluadoras.",
+        "show":"Leer más",
+        "hide":"Ocultar"
+
+    },
+    "contact":{
+        "contactUs":"Contact Us",
+        "paragraph":"Rellene el siguiente formulario y déjenos su mensaje.",
+        "name":"Nombre",
+        "email":"Correo Electrónico",
+        "message":"Mensaje",
+        "errorName":"*Debe ingresar su nombre completo.",
+        "errorEmail1":"*Debe ingresar un correo electrónico.",
+        "errorEmail2":"*Debe ingresar un formato válido.",
+        "errorMessage":"*Es necesario ingresar un mensaje.",
+        "send":"ENVIAR"
+
+    },
+    "404":{
+        "message":"Esta página no existe o no se encuentra disponible. Por favor regresa al inicio.",
+        "return":"Regresar a Inicio"
+    }
+}

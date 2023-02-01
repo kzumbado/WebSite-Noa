@@ -1,9 +1,15 @@
 import React, {useState} from 'react';
+
 import {HiOutlineBars3BottomLeft} from 'react-icons/hi2';
 import {MdClose} from 'react-icons/md';
 import {NavLink} from 'react-router-dom';
+import useTranslate from '../hooks/useTranslation';
+
 
 function NavBar({activeLink}) {
+
+    const {t,i18n}= useTranslate();
+
     const [subMenu, setSubMenu] = useState(false);
     const [fix, setFix] = useState(false);
 
@@ -39,18 +45,18 @@ function NavBar({activeLink}) {
 
                 <li>
                     <NavLink to='/' className={`transition-all pb-4 text-heading text-lg font-medium hover:text-primary-100 hover:border-b-2 ${activeLink === '/'? "border-b-2" : ""} border-secondary-100 uppercase`}>
-                        Inicio
+                        {t("navbar.home")}
                     </NavLink>
                 </li>
                 <li>
                 <NavLink to='/contact' className={`transition-all pb-4 text-heading text-lg font-medium hover:text-primary-100 hover:border-b-2 ${activeLink === '/contact'? "border-b-2" : ""} border-secondary-100 uppercase`}>
-                        Contacto
+                        {t("navbar.contact")}
                     </NavLink>
                 </li>
 
                 <li>
                 <NavLink to='/aboutus' className={`transition-all pb-4 text-heading text-lg font-medium hover:text-primary-100 hover:border-b-2 ${activeLink === '/aboutus'? "border-b-2" : ""} border-secondary-100 uppercase`}>
-                        Nosotros
+                        {t("navbar.aboutUs")}
                     </NavLink>
                 </li>
 
@@ -62,7 +68,7 @@ function NavBar({activeLink}) {
                           border-transparent px-6 py-2 text-base font-medium shadow-sm uppercase transition-all 
                           ${activeLink === '/download'? "border-2 border-primary-100 text-primary-100 hover:bg-primary-100 hover:text-white" : "bg-primary-100 text-white hover:bg-primary-200"}`}
                 >
-                Descargar
+                {t("navbar.download")}
             </NavLink>
 
         </nav>
@@ -72,19 +78,19 @@ function NavBar({activeLink}) {
 
                 <li className='w-full flex justify-center items-center h-14 border-b border-slate-300 text-center uppercase'>
                     <NavLink to='/' className={`${activeLink==='/'? "text-secondary-100" : "text-heading"} hover:text-primary-100 font-semibold hover:scale-110`}>
-                    Inicio
+                    {t("navbar.home")}
                     </NavLink>
                 </li>
 
                 <li className='w-full flex justify-center items-center h-14 border-b border-slate-300 text-center uppercase'>
                     <NavLink to='/contact' className={`${activeLink==='/contact'? "text-secondary-100" : "text-heading"} hover:text-primary-100 font-semibold hover:scale-110`}>
-                    Contacto
+                    {t("navbar.contact")}
                     </NavLink>
                 </li>
 
                 <li className='w-full flex justify-center items-center h-14 border-b border-slate-300 text-center uppercase'>
                     <NavLink to='/aboutus' className={`${activeLink==='/aboutus'? "text-secondary-100" : "text-heading"} hover:text-primary-100 font-semibold hover:scale-110`}>
-                    Nosotros
+                    {t("navbar.aboutUs")}
                     </NavLink>
                 </li>
 
@@ -95,7 +101,7 @@ function NavBar({activeLink}) {
                             border-transparent w-full max-w-xs py-2 text-base font-medium shadow-sm uppercase transition-all 
                             ${activeLink === '/download'? "border-2 border-primary-100 text-primary-100 hover:bg-primary-100 hover:text-white" : "bg-primary-100 text-white hover:bg-primary-200"}`}
                         >
-                        Descargar
+                        {t("navbar.download")}
                     </NavLink>
                 </li>
 

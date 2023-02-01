@@ -1,9 +1,14 @@
 
 import {NavLink}  from 'react-router-dom';
-
-
+import useTranslate from '../hooks/useTranslation';
+import Footer from '../components/Footer';
+  
 
 export const Error404 = () => {
+
+  const {t}= useTranslate();
+
+
   return (
     <>
     
@@ -15,19 +20,19 @@ export const Error404 = () => {
           Uh-oh!
         </h1>
 
-        <p className="mt-4 text-gray-500">Esta página no existe o no se encuentra disponible. Por favor regresa al inicio.</p>
+        <p className="mt-4 text-gray-500">{t("404.message")}</p>
 
         <NavLink
           to={`/`}
           className="mt-6 inline-block rounded bg-primary-100 px-5 py-3 text-sm font-medium text-white hover:bg-primary-200 focus:outline-none focus:ring"
         >
-          Regresar
+          {t("404.return")}
         </NavLink>
       </div>
     </div>
     
     
-    
+    <Footer/>
     
     </>
   )
