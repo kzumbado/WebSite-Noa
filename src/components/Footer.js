@@ -44,7 +44,7 @@ function Footer() {
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink className='text-orange-200 uppercase text-sm md:text-base opacity-70 hover:opacity-100'>
+                    <NavLink to={'/contact'} className='text-orange-200 uppercase text-sm md:text-base opacity-70 hover:opacity-100'>
                         Contacto
                     </NavLink>
                 </li>
