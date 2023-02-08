@@ -21,8 +21,8 @@ const WhyChooseUs = () => {
 
         <div className='pt-4 w-full flex flex-col  space-y-5 items-center xl:flex-row xl:space-x-5  xl:space-y-0 xl:justify-center xl:pt-10'>
 
-          <div className={` py-5 flex flex-row items-center ${ checked ? "bg-gray-600" : "bg-gray-300"} h-auto w-4/5 rounded-2xl justify-evenly max-w-lg `}>
-              <IoStatsChartSharp className=' -m-5 h-10 w-10 text-primary-200 '/> 
+          <div className={` py-5 flex flex-row items-center ${ checked ? "bg-gray-600" : "bg-gray-300"} h-auto w-5/5 rounded-2xl justify-evenly max-w-lg `}>
+              <IoStatsChartSharp className=' my-2 h-10 w-10 text-primary-200 '/> 
               <div className='flex flex-col font-bold'>
                 {t("download.security")}
                 <span className={`font-normal  ${ checked ? "text-gray-300" : "text-gray-500"} `}>
@@ -32,7 +32,7 @@ const WhyChooseUs = () => {
               </div>
           </div>
 
-          <div className={`py-4 flex flex-row items-center ${ checked ? "bg-gray-600" : "bg-gray-300"} h-auto w-4/5 rounded-2xl justify-evenly max-w-lg `}>
+          <div className={`py-4 flex flex-row items-center ${ checked ? "bg-gray-600" : "bg-gray-300"} h-auto w-5/5 rounded-2xl justify-evenly max-w-lg `}>
               <IoCardSharp className='mr-3 h-10 w-10  text-primary-200 '/> 
               <div className='flex flex-col font-bold'>
                 {t("download.morefocus")}
