@@ -1,12 +1,19 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 
 import {HiOutlineBars3BottomLeft} from 'react-icons/hi2';
 import {MdClose} from 'react-icons/md';
 import {NavLink} from 'react-router-dom';
+import { ThemeContext } from '../context/ThemeContext';
 import useTranslate from '../hooks/useTranslation';
+import SwitchToggle from './SwitchToggle';
+
+
+
 
 
 function NavBar({activeLink}) {
+
+    const {checked}=useContext(ThemeContext);
 
     const {t,i18n}= useTranslate();
 
@@ -24,9 +31,9 @@ function NavBar({activeLink}) {
     window.addEventListener("scroll", setFixed) 
     return (
         <div className='relative z-50'>
-        <nav className={`w-full h-[96px] py-7 ${fix? "bg-navbar-scroll border-b filter border-navbar-border-scroll shadow-md backdrop:blur-lg":"bg-background"} fixed  flex flex-row items-center px-6 md:px-16 xl:px-40 3xl:px-60`}>
+        <nav className={`w-full h-[96px] py-7 ${checked ? (fix? "bg-navbar-scrollNight border-b filter border-navbar-border-scroll-night shadow-md backdrop:blur-lg":"bg-backgroundNight"):(fix? "bg-navbar-scroll border-b filter border-navbar-border-scroll shadow-md backdrop:blur-lg":"bg-background")}  fixed  flex flex-row items-center px-6 md:px-16 xl:px-40 3xl:px-60`}>
 
-            <div className='text-lg font-semibold md:font-bold md:text-2xl text-heading'>
+            <div className={`text-lg font-semibold md:font-bold md:text-2xl ${checked ?'text-navbar-scroll':'text-heading' }`}>
                 LOGO
             </div>
             <div className='w-full flex justify-end md:hidden'>
@@ -34,9 +41,9 @@ function NavBar({activeLink}) {
                     
                     {
                         subMenu ? 
-                        <MdClose className='w-8 h-8 font-thin' />
+                        <MdClose className={`w-8 h-8 font-thin ${checked ?'text-navbar-scroll':'text-heading' }`} />
                         :
-                        <HiOutlineBars3BottomLeft className='w-8 h-8 font-thin' />
+                        <HiOutlineBars3BottomLeft className={`w-8 h-8 font-thin ${checked ?'text-navbar-scroll':'text-heading' }`} />
                     }
                 </button>
             </div>
@@ -44,18 +51,18 @@ function NavBar({activeLink}) {
             <ul className='hidden justify-end md:flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-10 w-full'>
 
                 <li>
-                    <NavLink to='/' className={`transition-all pb-4 text-heading text-lg font-medium hover:text-primary-100 hover:border-b-2 ${activeLink === '/'? "border-b-2" : ""} border-secondary-100 uppercase`}>
+                    <NavLink to='/' className={`transition-all pb-4 ${checked ?'text-navbar-scroll':'text-heading' } text-lg font-medium hover:text-primary-100 hover:border-b-2 ${activeLink === '/'? "border-b-2" : ""} border-secondary-100 uppercase`}>
                         {t("navbar.home")}
                     </NavLink>
                 </li>
                 <li>
-                <NavLink to='/contact' className={`transition-all pb-4 text-heading text-lg font-medium hover:text-primary-100 hover:border-b-2 ${activeLink === '/contact'? "border-b-2" : ""} border-secondary-100 uppercase`}>
+                <NavLink to='/contact' className={`transition-all pb-4 ${checked ?'text-navbar-scroll':'text-heading' } text-lg font-medium hover:text-primary-100 hover:border-b-2 ${activeLink === '/contact'? "border-b-2" : ""} border-secondary-100 uppercase`}>
                         {t("navbar.contact")}
                     </NavLink>
                 </li>
 
                 <li>
-                <NavLink to='/aboutus' className={`transition-all pb-4 text-heading text-lg font-medium hover:text-primary-100 hover:border-b-2 ${activeLink === '/aboutus'? "border-b-2" : ""} border-secondary-100 uppercase`}>
+                <NavLink to='/aboutus' className={`transition-all pb-4 ${checked ?'text-navbar-scroll':'text-heading' } text-lg font-medium hover:text-primary-100 hover:border-b-2 ${activeLink === '/aboutus'? "border-b-2" : ""} border-secondary-100 uppercase`}>
                         {t("navbar.aboutUs")}
                     </NavLink>
                 </li>
@@ -70,31 +77,33 @@ function NavBar({activeLink}) {
                 >
                 {t("navbar.download")}
             </NavLink>
+            
 
+            <SwitchToggle/>
         </nav>
         
-        <div className={`${fix? "bg-navbar-scroll filter shadow-md backdrop:blur-lg":"bg-background"} ${subMenu? "flex": "hidden"} fixed top-24 md:hidden transition-all ease-in-out flex w-full h-auto justify-evenly items-center mt-3 rounded-md`}>
+        <div className={`${checked?(fix? "bg-navbar-scrollNight filter shadow-md backdrop:blur-lg":"bg-backgroundNight"):(fix? "bg-navbar-scroll filter shadow-md backdrop:blur-lg":"bg-background")} ${subMenu? "flex": "hidden"} fixed top-24 md:hidden transition-all ease-in-out flex w-full h-auto justify-evenly items-center mt-3 rounded-md`}>
             <ul className='justify-evenly w-full flex flex-col text-center items-center'>
 
-                <li className='w-full flex justify-center items-center h-14 border-b border-slate-300 text-center uppercase'>
-                    <NavLink to='/' className={`${activeLink==='/'? "text-secondary-100" : "text-heading"} hover:text-primary-100 font-semibold hover:scale-110`}>
+                <li className={`w-full flex justify-center items-center h-14 border-b border-slate-300 text-center uppercase`}>
+                    <NavLink to='/' className={`${checked ? (activeLink==='/'? "text-secondary-100" : "text-background") : (activeLink==='/'? "text-secondary-100" : "text-heading")}  hover:text-primary-100 font-semibold hover:scale-110`}>
                     {t("navbar.home")}
                     </NavLink>
                 </li>
 
-                <li className='w-full flex justify-center items-center h-14 border-b border-slate-300 text-center uppercase'>
-                    <NavLink to='/contact' className={`${activeLink==='/contact'? "text-secondary-100" : "text-heading"} hover:text-primary-100 font-semibold hover:scale-110`}>
+                <li className={`w-full flex justify-center items-center h-14 border-b border-slate-300 text-center uppercase`}>
+                    <NavLink to='/contact' className={`${checked ? (activeLink==='/contact'? "text-secondary-100" : "text-background") : (activeLink==='/contact'? "text-secondary-100" : "text-heading")} hover:text-primary-100 font-semibold hover:scale-110`}>
                     {t("navbar.contact")}
                     </NavLink>
                 </li>
 
-                <li className='w-full flex justify-center items-center h-14 border-b border-slate-300 text-center uppercase'>
-                    <NavLink to='/aboutus' className={`${activeLink==='/aboutus'? "text-secondary-100" : "text-heading"} hover:text-primary-100 font-semibold hover:scale-110`}>
+                <li className={`w-full flex justify-center items-center h-14 border-b border-slate-300 text-center uppercase`}>
+                    <NavLink to='/aboutus' className={`${checked ? (activeLink==='/aboutus'? "text-secondary-100" : "text-background") : (activeLink==='/aboutus'? "text-secondary-100" : "text-heading")} hover:text-primary-100 font-semibold hover:scale-110`}>
                     {t("navbar.aboutUs")}
                     </NavLink>
                 </li>
 
-                <li className='w-full flex justify-center items-center h-14 border-b border-slate-300 text-center uppercase'>
+                <li className={`w-full flex justify-center items-center h-14 border-b border-slate-300 text-center uppercase`}>
                     <NavLink
                     to="/download"
                     className={`md:inline-flex items-center justify-center whitespace-nowrap rounded-md border 
@@ -104,7 +113,10 @@ function NavBar({activeLink}) {
                         {t("navbar.download")}
                     </NavLink>
                 </li>
+                <li className={`w-full flex justify-center items-center h-14 border-b border-slate-300 text-center uppercase`}>
+                    <SwitchToggle/>   
 
+                </li>
             </ul>
         </div>
         

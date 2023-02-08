@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
 import {HiOutlineMail, HiOutlinePhone} from 'react-icons/hi';
@@ -6,6 +6,7 @@ import {AiOutlineGithub} from 'react-icons/ai';
 import {FaFacebookF, FaTwitter, FaInstagram} from 'react-icons/fa';
 import TextareaAutosize from 'react-textarea-autosize';
 import useTranslate from '../hooks/useTranslation';
+import { ThemeContext } from '../context/ThemeContext';
 
 
 
@@ -81,6 +82,7 @@ const Contact = () => {
   
   const {t}=useTranslate();
 
+  const {checked}=useContext(ThemeContext);
 
   return (
     <div>
@@ -88,25 +90,25 @@ const Contact = () => {
         <NavBar activeLink={'/contact'}/>
         <div className='h-[96px]'></div>
 
-        <div className='relative flex flex-col h-auto w-full px-6 md:px-16 py-20 md:py-30 xl:px-40 3xl:px-60 xl:flex-row'>
+        <div className={`${checked ? "bg-backgroundNight" :"bg-background"} relative flex flex-col h-auto w-full px-6 md:px-16 py-20 md:py-30 xl:px-40 3xl:px-60 xl:flex-row`}>
           
           <div className="w-full flex flex-col items-center h-4/5 xl:h-screen xl:w-4/5 xl:items-start">
             <div className='text-4xl md:text-5xl xl:text-6xl 2xl:text-7xl 3xl:text-8xl max-w-sm md:max-w-lg xl:max-w-xl 2xl:max-w-4xl leading-[45px] text-primary-200 font-bold'>
               {t("contact.contactUs")}
             </div>
-            <p className='max-w-sm text-center xl:text-left md:max-w-lg 3xl:max-w-xl 3xl:text-2xl text-gray-500 leading-6 mt-4 lg:mt-6 md:text-lg xl:text-xl 2xl:max-w-md'>
+            <p className={`max-w-sm text-center xl:text-left md:max-w-lg 3xl:max-w-xl 3xl:text-2xl ${checked ? "text-background" : "text-gray-500"} leading-6 mt-4 lg:mt-6 md:text-lg xl:text-xl 2xl:max-w-md`}>
               {t("contact.paragraph")}
             </p>
 
             <div className="flex flex-col w-full items-center mt-8 xl:items-start">
                 <form method='POST' className="flex flex-col items-center w-full xl:items-start" onSubmit={sendEmail}>
-                    <input onChange={(e) => {setName(e.target.value); removeError("errorName")}} value={name}  className='peer mt-5 xl:mt-8 max-w-lg w-full h-[40px] border-b-2 border-gray-400 bg-transparent placeholder-gray-500 pl-3 pb-1 outline-none focus:border-2 focus:rounded-md focus:border-primary-200' placeholder={t("contact.name")} type='text' >
+                    <input onChange={(e) => {setName(e.target.value); removeError("errorName")}} value={name}  className={`peer mt-5 xl:mt-8 max-w-lg w-full h-[40px] border-b-2 ${checked ? "border-background bg-transparent placeholder-background" :"border-gray-400 bg-transparent placeholder-gray-500"} pl-3 pb-1 outline-none focus:border-2 focus:rounded-md focus:border-primary-200`} placeholder={t("contact.name")} type='text' >
                     </input>
                     <p id="errorName" className='hidden mt-1 ml-2 text-red-600'>{t("contact.errorName")}</p>
-                    <input onChange={(e)=>{setEmail(e.target.value); removeError("errorEmail")}} value={email} className='max-w-lg w-full mt-5 xl:mt-8 h-[40px] border-b-2 border-gray-400 bg-transparent placeholder-gray-500 pl-3 pb-1 outline-none focus:border-2 focus:rounded-md focus:border-primary-200' placeholder={t("contact.email")} type='text' >
+                    <input onChange={(e)=>{setEmail(e.target.value); removeError("errorEmail")}} value={email} className={`max-w-lg w-full mt-5 xl:mt-8 h-[40px] border-b-2 ${checked ? "border-background bg-transparent placeholder-background" :"border-gray-400 bg-transparent placeholder-gray-500"} pl-3 pb-1 outline-none focus:border-2 focus:rounded-md focus:border-primary-200`} placeholder={t("contact.email")} type='text' >
                     </input>
                     <p id="errorEmail" className='hidden mt-1 ml-2 text-red-500'>{errorEmail}</p>
-                    <TextareaAutosize  onChange={(e)=>{setMessage(e.target.value); removeError("errorMessage")}} value={message} className='max-w-lg w-full mt-5 xl:mt-8 pt-2 border-b-2 border-gray-400 bg-transparent placeholder-gray-500 pl-3 pb-1 resize-none outline-none focus:border-2 focus:rounded-md focus:border-primary-200 overflow-hidden' 
+                    <TextareaAutosize  onChange={(e)=>{setMessage(e.target.value); removeError("errorMessage")}} value={message} className={`max-w-lg w-full mt-5 xl:mt-8 pt-2 border-b-2 ${checked ? "border-background bg-transparent placeholder-background" :"border-gray-400 bg-transparent placeholder-gray-500"} pl-3 pb-1 resize-none outline-none focus:border-2 focus:rounded-md focus:border-primary-200 overflow-hidden`} 
                     placeholder={t("contact.message")}   maxRows={3}/>
                     <p id="errorMessage" className='hidden mt-1 ml-2 text-red-500'>{t("contact.errorMessage")}</p>
                     

@@ -1,25 +1,28 @@
 
 
+import { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import {FaGooglePlay, FaApple} from 'react-icons/fa';
 import useTranslate from '../hooks/useTranslation';
-
+import { ThemeContext } from '../context/ThemeContext';
 
 
 const DownloadCard = () => {
    
     const {t,i18n}=useTranslate();
+    const {checked}=useContext(ThemeContext);
 
+    
   return (
 
-    <div className='items-center flex flex-col w-full h-auto md:flex-row md:justify-center px-6 md:px-16 py-20 md:py-30 xl:px-40 3xl:px-60' >
+    <div className={`${ checked ? "bg-backgroundNight" : "bg-background"} items-center flex flex-col w-full h-auto md:flex-row md:justify-center px-6 md:px-16 py-20 md:py-30 xl:px-40 3xl:px-60`} >
 
 
         <div className="w-full h-autoflex flex-col items-center">
             <div className='w-full text-4xl md:text-5xl xl:text-6xl 2xl:text-7xl 3xl:text-8xl max-w-sm md:max-w-lg xl:max-w-xl 2xl:max-w-4xl leading-[45px] font-bold bg-gradient-to-bl from-primary-100 via-primary-200 to-secondary-100 text-transparent bg-clip-text'>
                 {t("download.title")}
 
-            </div> <p className="max-w-xs md:max-w-sm 3xl:max-w-xl 3xl:text-2xl text-gray-500 leading-6 mt-2 lg:mt-7 md:text-lg xl:text-lg 2xl:max-w-md text-start">
+            </div> <p className={`max-w-xs md:max-w-sm 3xl:max-w-xl 3xl:text-2xl ${checked ? 'text-gray-400':  'text-gray-500'} leading-6 mt-2 lg:mt-7 md:text-lg xl:text-lg 2xl:max-w-md text-start`}>
             {t("download.paragraph")}
             </p>      
 
@@ -48,14 +51,11 @@ const DownloadCard = () => {
                     </div>
                 </a>
                 
-                <button className='bg-red-400' onClick={()=>i18n.changeLanguage("es")}>es</button>
-                <button className='bg-red-400' onClick={()=>i18n.changeLanguage("en")}>en</button>
-                
                 
             </div>
         </div>
 
-        <div className='w-full flex justify-center md:justify-end mt-6'>
+        <div className={`w-full flex justify-center md:justify-end mt-6`}>
             <div className="bg-gradient-to-bl from-primary-100 via-primary-200 to-secondary-100 h-auto w-2/3 max-w-lg rounded-3xl flex justify-center ">
                 <img className='h-auto w-full'  src='https://claroperupoc.vtexassets.com/arquivos/ids/318338/Apple-iPhone-11-Negro--2-.png?v=638007807583700000' alt='iphone'/>
             </div>

@@ -2,6 +2,7 @@ import {BrowserRouter, Routes, Route} from "react-router-dom";
 import { Error404 } from "./pages/Error404";
 import OnLoadingPage from "./components/OnLoadingPage";
 import React from "react";
+import ThemeProvider from "./context/ThemeProvider";
 
 const LazyHomepage = React.lazy(() => import('./pages/HomePage'));
 const LazyDownload = React.lazy(() => import('./pages/Download'));
@@ -10,6 +11,10 @@ const LazyContact = React.lazy(() => import('./pages/Contact'));
 
 function App() {
   return (
+
+    <ThemeProvider>
+    
+   
     <div className="App">
       <BrowserRouter>
         <Routes>
@@ -21,6 +26,8 @@ function App() {
         </Routes>
       </BrowserRouter>
     </div>
+
+    </ThemeProvider>
   );
 }
 

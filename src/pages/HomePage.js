@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import NavBar from "../components/NavBar";
 import Footer from '../components/Footer';
 import {NavLink} from 'react-router-dom';
@@ -6,6 +6,7 @@ import {FaTwitter, FaInstagram} from 'react-icons/fa';
 import {AiOutlineGithub} from 'react-icons/ai';
 import VideoDisplay from '../components/VideoDisplay';
 import useTranslate from '../hooks/useTranslation';
+import { ThemeContext } from '../context/ThemeContext';
 
 // const LazyVideoDisplay = React.lazy(() => import('../components/VideoDisplay') )
 
@@ -15,18 +16,24 @@ function HomePage() {
 
   const{ t }=useTranslate();
 
+  const {checked}=useContext(ThemeContext);
+
+
+  
+
+ 
 
   return (
     <div>
         <NavBar activeLink={'/'} />
         <div className='h-[96px]'></div>
         
-        <div className='hero w-full bg-background px-6 md:px-16 py-20 md:py-40 xl:px-40 3xl:px-60 flex flex-col lg:flex-row lg:items-center lg:justify-evenly'>
+        <div className={`hero w-full  ${checked ?'dark:bg-backgroundNight' :'bg-background' } px-6 md:px-16 py-20 md:py-40 xl:px-40 3xl:px-60 flex flex-col lg:flex-row lg:items-center lg:justify-evenly`}>
           <div className='w-full'>
             <div className='text-4xl md:text-5xl xl:text-6xl 2xl:text-7xl 3xl:text-8xl max-w-sm md:max-w-lg xl:max-w-xl 2xl:max-w-4xl leading-[45px] text-primary-200 font-bold'>
              {t("home.title")} <span className='text-primary-100'>{t("home.now")}</span>
             </div>
-            <p className='pr-16 max-w-xs md:max-w-sm 3xl:max-w-xl 3xl:text-2xl text-gray-500 leading-6 mt-4 lg:mt-6 md:text-lg xl:text-xl 2xl:max-w-md mb-8'>
+            <p className={`pr-16 max-w-xs md:max-w-sm 3xl:max-w-xl 3xl:text-2xl   ${checked ?'text-navbar-scroll':'text-gray-500' } leading-6 mt-4 lg:mt-6 md:text-lg xl:text-xl 2xl:max-w-md mb-8`}>
                {t("home.h-paragraph")}
             </p>
 
@@ -48,12 +55,12 @@ function HomePage() {
 
 
 
-        <div className='w-full flex flex-col lg:items-center px-6 md:px-16 pb-20 md:pb-40 xl:px-40 3xl:px-60'>
+        <div className={` ${checked ?'dark:bg-backgroundNight' :'bg-background' } w-full flex flex-col lg:items-center px-6 md:px-16 pb-20 md:pb-40 xl:px-40 3xl:px-60`}>
           <div className='text-2xl md:text-3xl xl:text-4xl 2xl:text-5xl 3xl:text-6xl max-w-sm md:max-w-lg xl:max-w-xl 2xl:max-w-4xl leading-[45px] text-primary-200 font-bold'>
             {t("home.team")}
           </div>
 
-          <div className='w-full flex flex-col items-center justify-center pt-8 space-y-5 lg:flex-row lg:space-y-0 lg:space-x-10 2xl:space-x-40 3xl:space-x-60 2xl:pt-14'>
+          <div className={` w-full flex flex-col items-center justify-center pt-8 space-y-5 lg:flex-row lg:space-y-0 lg:space-x-10 2xl:space-x-40 3xl:space-x-60 2xl:pt-14`}>
             
             <div className='w-52 h-60 bg-primary-200 hover:scale-105 lg:w-60 lg:h-72 2xl:w-72 2xl:h-80 relative'>
               <div className='w-full h-4/5'>

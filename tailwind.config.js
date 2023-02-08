@@ -10,6 +10,7 @@ module.exports = {
       },
       colors: {
         "background": "#e4e4e4",
+        "backgroundNight":"#111111",
         "heading": "#2f2f2f",
         "overlay": "rgba(47, 47, 47, 0.4)",
         primary: {
@@ -21,7 +22,9 @@ module.exports = {
         },
         navbar: {
           "scroll": "rgba(228,228,228,0.7)",
-          "border-scroll": "rgba(228,228,228,0.7)"
+          "scrollNight": "rgba(39, 39, 39, 0.7)",
+          "border-scroll": "rgba(228,228,228,0.7)",
+          "border-scroll-night": "rgba(39, 39, 39, 0.7)",
         }
       }
     },
