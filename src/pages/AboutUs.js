@@ -1,7 +1,8 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import useTranslate from '../hooks/useTranslation';
+import { ThemeContext } from '../context/ThemeContext';
 
 
 
@@ -12,12 +13,14 @@ function AboutUs() {
     const [readMoreMision, setReadMoreMision] = useState(false);
     const [readMoreHistory, setReadMoreHistory] = useState(false);
     const{t}=useTranslate();
+    const {checked}=useContext(ThemeContext);
+
     return (
         <div>
             <NavBar activeLink={'/aboutus'} />
             <div className='h-[96px]'></div>
             
-            <div className='w-full px-6 md:px-16 py-20 md:py-40 xl:px-40 3xl:px-60 flex flex-col space-y-10 xl:space-y-20 3xl:space-y-40'>
+            <div className={`${checked ? "bg-backgroundNight" :"bg-background"} w-full px-6 md:px-16 py-20 md:py-40 xl:px-40 3xl:px-60 flex flex-col space-y-10 xl:space-y-20 3xl:space-y-40`}>
                 <div className='w-full flex flex-col items-center justify-center'>
                     <div className='text-4xl md:text-5xl xl:text-6xl 2xl:text-7xl 3xl:text-8xl font-bold text-primary-200'>{t("aboutUs.we")}</div>
                     <div className='text-2xl md:text-3xl xl:text-4xl 2xl:text-5xl 3xl:text-6xl font-semibold text-primary-100'>Bios</div>
@@ -26,8 +29,8 @@ function AboutUs() {
 
                 <div className='w-full flex flex-col space-y-5 lg:space-y-0 lg:flex-row'>
                     <div className='w-full flex flex-col'>
-                        <div className='text-2xl md:text-3xl xl:text-4xl 2xl:text-5xl 3xl:text-6xl font-light text-heading mb-5'>{t("aboutUs.history")}</div>
-                        <div className='text-lg xl:text-xl 3xl:text-2xl font-light text-gray-500 lg:max-w-sm xl:max-w-md 2xl:max-w-lg 3xl:max-w-4xl'>
+                        <div className= {`text-2xl md:text-3xl xl:text-4xl 2xl:text-5xl 3xl:text-6xl font-light ${checked ? "text-background":"text-heading"} mb-5`}>{t("aboutUs.history")}</div>
+                        <div className={`text-lg xl:text-xl 3xl:text-2xl font-light ${checked ? "text-gray-400":"text-gray-500"} lg:max-w-sm xl:max-w-md 2xl:max-w-lg 3xl:max-w-4xl`}>
                             {t("aboutUs.h-paragraph")}
                             <span className={`${readMoreHistory? "hidden" : "inline"}`}>..</span>
                             <span className={`${readMoreHistory? "inline" : "hidden"}`}>
@@ -52,8 +55,8 @@ function AboutUs() {
                     </div>
 
                     <div className='w-full flex flex-col lg:w-2/5'>
-                        <div className='text-2xl md:text-3xl xl:text-4xl 2xl:text-5xl 3xl:text-6xl font-light text-heading mb-5'>{t("aboutUs.vision")}</div>
-                        <div className='text-lg xl:text-xl 3xl:text-2xl font-light text-gray-500 lg:max-w-sm xl:max-w-md 2xl:max-w-lg 3xl:max-w-4xl'>
+                        <div className={`text-2xl md:text-3xl xl:text-4xl 2xl:text-5xl 3xl:text-6xl font-light ${checked ? "text-background":"text-heading"} mb-5`}>{t("aboutUs.vision")}</div>
+                        <div className={`text-lg xl:text-xl 3xl:text-2xl font-light ${checked ? "text-gray-400":"text-gray-500"} lg:max-w-sm xl:max-w-md 2xl:max-w-lg 3xl:max-w-4xl`}>
                             {t("aboutUs.v-paragraph")}
                             <span className={`${readMoreVision? "hidden" : "inline"}`}>..</span>
                             <span className={`${readMoreVision? "inline" : "hidden"}`}>
@@ -69,8 +72,8 @@ function AboutUs() {
 
                 <div className='w-full flex flex-col space-y-5 lg:space-y-0 lg:flex-row'>
                     <div className='w-full flex flex-col'>
-                        <div className='text-2xl md:text-3xl xl:text-4xl 2xl:text-5xl 3xl:text-6xl font-light text-heading mb-5'>{t("aboutUs.mission")}</div>
-                        <div className='text-lg xl:text-xl 3xl:text-2xl font-light text-gray-500 lg:max-w-sm xl:max-w-md 2xl:max-w-lg 3xl:max-w-4xl'>
+                        <div className={`text-2xl md:text-3xl xl:text-4xl 2xl:text-5xl 3xl:text-6xl font-light ${checked ? "text-background":"text-heading"} mb-5`}>{t("aboutUs.mission")}</div>
+                        <div className={`text-lg xl:text-xl 3xl:text-2xl font-light ${checked ? "text-gray-400":"text-gray-500"} lg:max-w-sm xl:max-w-md 2xl:max-w-lg 3xl:max-w-4xl`}>
                             {t("aboutUs.m-paragraph")}
                             <span className={`${readMoreMision? "hidden" : "inline"}`}>..</span>
                             <span className={`${readMoreMision? "inline" : "hidden"}`}>
