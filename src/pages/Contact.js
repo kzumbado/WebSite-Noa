@@ -5,6 +5,10 @@ import {HiOutlineMail, HiOutlinePhone} from 'react-icons/hi';
 import {AiOutlineGithub} from 'react-icons/ai';
 import {FaFacebookF, FaTwitter, FaInstagram} from 'react-icons/fa';
 import TextareaAutosize from 'react-textarea-autosize';
+import useTranslate from '../hooks/useTranslation';
+
+
+
 
 const Contact = () => {
 
@@ -31,14 +35,14 @@ const Contact = () => {
 
     if (email === "") {
       var errorEmail = document.getElementById("errorEmail");
-      setErrorEmail("*Debe ingresar un correo electrónico.")
+      setErrorEmail(t("contact.errorEmail1"))
       errorEmail.classList.remove("hidden");
       return;
     }
 
     if (!re.test(email)) {
       var errorEmail = document.getElementById("errorEmail");
-      setErrorEmail("*Debe ingresar un formato válido.")
+      setErrorEmail(t("contact.errorEmail2"))
       errorEmail.classList.remove("hidden");
       return;
     }
@@ -75,6 +79,9 @@ const Contact = () => {
     }
   }
   
+  const {t}=useTranslate();
+
+
   return (
     <div>
         
@@ -85,26 +92,26 @@ const Contact = () => {
           
           <div className="w-full flex flex-col items-center h-4/5 xl:h-screen xl:w-4/5 xl:items-start">
             <div className='text-4xl md:text-5xl xl:text-6xl 2xl:text-7xl 3xl:text-8xl max-w-sm md:max-w-lg xl:max-w-xl 2xl:max-w-4xl leading-[45px] text-primary-200 font-bold'>
-              Contáctanos
+              {t("contact.contactUs")}
             </div>
             <p className='max-w-sm text-center xl:text-left md:max-w-lg 3xl:max-w-xl 3xl:text-2xl text-gray-500 leading-6 mt-4 lg:mt-6 md:text-lg xl:text-xl 2xl:max-w-md'>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
+              {t("contact.paragraph")}
             </p>
 
             <div className="flex flex-col w-full items-center mt-8 xl:items-start">
                 <form method='POST' className="flex flex-col items-center w-full xl:items-start" onSubmit={sendEmail}>
-                    <input onChange={(e) => {setName(e.target.value); removeError("errorName")}} value={name}  className='peer mt-5 xl:mt-8 max-w-lg w-full h-[40px] border-b-2 border-gray-400 bg-transparent placeholder-gray-500 pl-3 pb-1 outline-none focus:border-2 focus:rounded-md focus:border-primary-200' placeholder="Name" type='text' >
+                    <input onChange={(e) => {setName(e.target.value); removeError("errorName")}} value={name}  className='peer mt-5 xl:mt-8 max-w-lg w-full h-[40px] border-b-2 border-gray-400 bg-transparent placeholder-gray-500 pl-3 pb-1 outline-none focus:border-2 focus:rounded-md focus:border-primary-200' placeholder={t("contact.name")} type='text' >
                     </input>
-                    <p id="errorName" className='hidden mt-1 ml-2 text-red-600'>*Debe ingresar su nombre completo.</p>
-                    <input onChange={(e)=>{setEmail(e.target.value); removeError("errorEmail")}} value={email} className='max-w-lg w-full mt-5 xl:mt-8 h-[40px] border-b-2 border-gray-400 bg-transparent placeholder-gray-500 pl-3 pb-1 outline-none focus:border-2 focus:rounded-md focus:border-primary-200' placeholder="Email" type='text' >
+                    <p id="errorName" className='hidden mt-1 ml-2 text-red-600'>{t("contact.errorName")}</p>
+                    <input onChange={(e)=>{setEmail(e.target.value); removeError("errorEmail")}} value={email} className='max-w-lg w-full mt-5 xl:mt-8 h-[40px] border-b-2 border-gray-400 bg-transparent placeholder-gray-500 pl-3 pb-1 outline-none focus:border-2 focus:rounded-md focus:border-primary-200' placeholder={t("contact.email")} type='text' >
                     </input>
                     <p id="errorEmail" className='hidden mt-1 ml-2 text-red-500'>{errorEmail}</p>
                     <TextareaAutosize  onChange={(e)=>{setMessage(e.target.value); removeError("errorMessage")}} value={message} className='max-w-lg w-full mt-5 xl:mt-8 pt-2 border-b-2 border-gray-400 bg-transparent placeholder-gray-500 pl-3 pb-1 resize-none outline-none focus:border-2 focus:rounded-md focus:border-primary-200 overflow-hidden' 
-                    placeholder="Message"  maxRows={3}/>
-                    <p id="errorMessage" className='hidden mt-1 ml-2 text-red-500'>*Es necesario ingresar un mensaje.</p>
+                    placeholder={t("contact.message")}   maxRows={3}/>
+                    <p id="errorMessage" className='hidden mt-1 ml-2 text-red-500'>{t("contact.errorMessage")}</p>
                     
                     <button type='submit' className='w-full mt-5 xl:mt-8 max-w-lg bg-primary-100 py-3 text-white font-semibold hover:bg-primary-200 tracking-widest uppercase'>
-                        Send
+                        {t("contact.send")}
                     </button>
 
 

@@ -1,0 +1,74 @@
+{
+
+    "navbar":{
+        "home":"Home",
+        "contact":"Contact",
+        "aboutUs":"About Us",
+        "download":"Download",
+        "language":"Language",
+        "spanish":"Spanish",
+        "english":"English"
+    },
+    "footer":{
+        "home":"Home",
+        "contact":"Contact",
+        "aboutUs":"About Us",
+        "phrase":"Improving the future",
+        "rights":"© 2023 Bios - All Rights Reserved."
+       
+        
+    },
+    "home":{
+        "title":"The future of commerce.",
+        "now":"Now.",
+        "h-paragraph":"A popular idea of late has been to have leaders focus on developing their strengths and largely ignore their weaknesses. When is that good advice? For the second and third groups, or those leaders without any detracting weakness.",
+        "readMore":"Read more",
+        "team":"Meet our Team"
+    },
+
+
+    "download":{
+        "title":"The world's most powerful crypto app", 
+        "paragraph":"The world's most powerful application  is now available on Apple Store and Google Play, click on the link below.",
+        "appStore":"Download on the",
+        "Google":"Get it on",
+        "why":"Why choose us",
+        "crytography":"Cryptography to secure online transactions. Much of the interes in these unregaluted.",
+        "security":"Security by Default",
+        "privacy":"Enable privacy mode and \n app locking to protect your data",
+        "morefocus":"More focus UI",
+        "ensure":"Enter your information ensure your details safe and more secure"
+    },
+
+    "aboutUs":{
+        "we":"About us",
+        "history":"History",
+        "h-paragraph":"A popular idea of late has been to have leaders focus on developing their strengths and largely ignore their weaknesses. When is that good advice? For the second and third groups, or those leaders without any detracting weakness.",
+        "vision":"Vision",
+        "v-paragraph":"A popular idea of late has been to have leaders focus on developing their strengths and largely ignore their weaknesses. When is that good advice? For the second and third groups, or those leaders without any detracting weakness.",
+        "mission":"Mission",
+        "m-paragraph":"A popular idea of late has been to have leaders focus on developing their strengths and largely ignore their weaknesses. When is that good advice? For the second and third groups, or those leaders without any detracting weakness.",
+        "show":"Read more",
+        "hide":"Hide"
+
+    },
+
+    "contact":{
+        "contactUs":"Contact Us",
+        "paragraph":"Fill out the form below and leave us your message.",
+        "name":"Name",
+        "email":"Email",
+        "message":"Message",
+        "errorName":"*You must enter your full name.",
+        "errorEmail1":"*You must enter an e-mail address.",
+        "errorEmail2":"*You must enter a valid format.",
+        "errorMessage":"*You must enter a message.",
+        "send":"SEND"
+    },
+    "404":{
+        "message":"This page does not exist or is not available. Please return to home page.",
+        "return":"Back to Home"
+    }
+
+    
+}

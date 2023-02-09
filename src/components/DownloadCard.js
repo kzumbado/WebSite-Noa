@@ -1,7 +1,10 @@
 import {FaGooglePlay, FaApple} from 'react-icons/fa';
-
+import useTranslate from '../hooks/useTranslation';
 
 const DownloadCard = () => {
+   
+    const {t}=useTranslate();
+
   return (
 
     <div className='items-center flex flex-col w-full h-auto md:flex-row md:justify-center px-6 md:px-16 py-20 md:py-30 xl:px-40 3xl:px-60' >
@@ -9,12 +12,10 @@ const DownloadCard = () => {
 
         <div className="w-full h-autoflex flex-col items-center">
             <div className='w-full text-4xl md:text-5xl xl:text-6xl 2xl:text-7xl 3xl:text-8xl max-w-sm md:max-w-lg xl:max-w-xl 2xl:max-w-4xl leading-[45px] font-bold bg-gradient-to-bl from-primary-100 via-primary-200 to-secondary-100 text-transparent bg-clip-text'>
-             The world's<br/> 
-             most powerful<br/> 
-            crypto app
-            </div>
-            <p className="max-w-xs md:max-w-sm 3xl:max-w-xl 3xl:text-2xl text-gray-500 leading-6 mt-2 lg:mt-6 md:text-lg xl:text-lg 2xl:max-w-md text-start">
-            Tempor tempor exercitation proident id exercitation consequat aliqua. Commodo irure ad incididunt sit tempor. 
+                {t("download.title")}
+
+            </div> <p className="max-w-xs md:max-w-sm 3xl:max-w-xl 3xl:text-2xl text-gray-500 leading-6 mt-2 lg:mt-7 md:text-lg xl:text-lg 2xl:max-w-md text-start">
+            {t("download.paragraph")}
             </p>      
 
             <div className="flex flex-row w-full h-[90px] space-x-4 items-center ">
@@ -22,7 +23,7 @@ const DownloadCard = () => {
                     <div className="flex flex-row w-32 xl:w-36 h-[40px] xl:h-[44px] bg-black rounded-lg items-center px-1 hover:bg-gray-800">
                         <FaApple className="px-1 w-7 h-7 text-white xl:h-8 xl:w-8"/>
                         <div className="pl-1  flex flex-col text-[10px] text-white xl:text-[12px]">
-                            Download on the
+                        {t("download.appStore")}
                             <span className="text-base -mt-1">
                             AppStore
                             </span>
@@ -34,13 +35,14 @@ const DownloadCard = () => {
                     <div className="flex flex-row w-32 xl:w-36 h-[40px] xl:h-[44px] bg-black rounded-lg items-center px-1 hover:bg-gray-800">
                         <FaGooglePlay className="px-1 w-7 h-7 text-white xl:h-8 xl:w-8"/>
                         <div className="flex flex-col text-[10px] text-white xl:text-[12px]">
-                             Get it on
+                            {t("download.Google")}
                             <span className="text-base -mt-1">
                             Google Play
                             </span>
                         </div>
                     </div>
                 </a>
+                
             </div>
         </div>
 

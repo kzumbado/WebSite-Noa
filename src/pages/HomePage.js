@@ -5,12 +5,17 @@ import {NavLink} from 'react-router-dom';
 import {FaTwitter, FaInstagram} from 'react-icons/fa';
 import {AiOutlineGithub} from 'react-icons/ai';
 import VideoDisplay from '../components/VideoDisplay';
+import useTranslate from '../hooks/useTranslation';
 
 // const LazyVideoDisplay = React.lazy(() => import('../components/VideoDisplay') )
 
 
 
 function HomePage() {
+
+  const{ t }=useTranslate();
+
+
   return (
     <div>
         <NavBar activeLink={'/'} />
@@ -19,10 +24,10 @@ function HomePage() {
         <div className='hero w-full bg-background px-6 md:px-16 py-20 md:py-40 xl:px-40 3xl:px-60 flex flex-col lg:flex-row lg:items-center lg:justify-evenly'>
           <div className='w-full'>
             <div className='text-4xl md:text-5xl xl:text-6xl 2xl:text-7xl 3xl:text-8xl max-w-sm md:max-w-lg xl:max-w-xl 2xl:max-w-4xl leading-[45px] text-primary-200 font-bold'>
-              El futuro de los comercios. <span className='text-primary-100'>Ahora.</span>
+             {t("home.title")} <span className='text-primary-100'>{t("home.now")}</span>
             </div>
             <p className='pr-16 max-w-xs md:max-w-sm 3xl:max-w-xl 3xl:text-2xl text-gray-500 leading-6 mt-4 lg:mt-6 md:text-lg xl:text-xl 2xl:max-w-md mb-8'>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
+               {t("home.h-paragraph")}
             </p>
 
             <NavLink
@@ -31,7 +36,7 @@ function HomePage() {
                         border-primary-100 px-10 py-2 text-base font-semibold text-primary-100 
                         shadow-sm hover:bg-primary-100 hover:text-white transition-all"
             >
-              Leer más
+              {t("home.readMore")}
             </NavLink>
           </div>
 
@@ -45,7 +50,7 @@ function HomePage() {
 
         <div className='w-full flex flex-col lg:items-center px-6 md:px-16 pb-20 md:pb-40 xl:px-40 3xl:px-60'>
           <div className='text-2xl md:text-3xl xl:text-4xl 2xl:text-5xl 3xl:text-6xl max-w-sm md:max-w-lg xl:max-w-xl 2xl:max-w-4xl leading-[45px] text-primary-200 font-bold'>
-            Conoce a nuestro Equipo
+            {t("home.team")}
           </div>
 
           <div className='w-full flex flex-col items-center justify-center pt-8 space-y-5 lg:flex-row lg:space-y-0 lg:space-x-10 2xl:space-x-40 3xl:space-x-60 2xl:pt-14'>

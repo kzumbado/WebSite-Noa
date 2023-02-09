@@ -1,12 +1,17 @@
 import React, {useState} from 'react';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
+import useTranslate from '../hooks/useTranslation';
+
+
+
+
 
 function AboutUs() {
     const [readMoreVision, setReadMoreVision] = useState(false);
     const [readMoreMision, setReadMoreMision] = useState(false);
     const [readMoreHistory, setReadMoreHistory] = useState(false);
-
+    const{t}=useTranslate();
     return (
         <div>
             <NavBar activeLink={'/aboutus'} />
@@ -14,22 +19,20 @@ function AboutUs() {
             
             <div className='w-full px-6 md:px-16 py-20 md:py-40 xl:px-40 3xl:px-60 flex flex-col space-y-10 xl:space-y-20 3xl:space-y-40'>
                 <div className='w-full flex flex-col items-center justify-center'>
-                    <div className='text-4xl md:text-5xl xl:text-6xl 2xl:text-7xl 3xl:text-8xl font-bold text-primary-200'>Nosotros</div>
+                    <div className='text-4xl md:text-5xl xl:text-6xl 2xl:text-7xl 3xl:text-8xl font-bold text-primary-200'>{t("aboutUs.we")}</div>
                     <div className='text-2xl md:text-3xl xl:text-4xl 2xl:text-5xl 3xl:text-6xl font-semibold text-primary-100'>Bios</div>
 
                 </div>
 
                 <div className='w-full flex flex-col space-y-5 lg:space-y-0 lg:flex-row'>
                     <div className='w-full flex flex-col'>
-                        <div className='text-2xl md:text-3xl xl:text-4xl 2xl:text-5xl 3xl:text-6xl font-light text-heading mb-5'>Historia</div>
+                        <div className='text-2xl md:text-3xl xl:text-4xl 2xl:text-5xl 3xl:text-6xl font-light text-heading mb-5'>{t("aboutUs.history")}</div>
                         <div className='text-lg xl:text-xl 3xl:text-2xl font-light text-gray-500 lg:max-w-sm xl:max-w-md 2xl:max-w-lg 3xl:max-w-4xl'>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            {t("aboutUs.h-paragraph")}
                             <span className={`${readMoreHistory? "hidden" : "inline"}`}>..</span>
                             <span className={`${readMoreHistory? "inline" : "hidden"}`}>
-                            <br/>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
-                            <button onClick={() => {setReadMoreHistory(!readMoreHistory)}} className='text-primary-200 inline ml-1'>{readMoreHistory? "Ocultar" : "Leer más"}</button>
+                            <br/>{t("aboutUs.h-paragraph")}</span>
+                            <button onClick={() => {setReadMoreHistory(!readMoreHistory)}} className='text-primary-200 inline ml-1'>{readMoreHistory? t("aboutUs.hide") : t("aboutUs.show")}</button>
                         </div>
                     </div>
                     
@@ -49,15 +52,13 @@ function AboutUs() {
                     </div>
 
                     <div className='w-full flex flex-col lg:w-2/5'>
-                        <div className='text-2xl md:text-3xl xl:text-4xl 2xl:text-5xl 3xl:text-6xl font-light text-heading mb-5'>Visión</div>
+                        <div className='text-2xl md:text-3xl xl:text-4xl 2xl:text-5xl 3xl:text-6xl font-light text-heading mb-5'>{t("aboutUs.vision")}</div>
                         <div className='text-lg xl:text-xl 3xl:text-2xl font-light text-gray-500 lg:max-w-sm xl:max-w-md 2xl:max-w-lg 3xl:max-w-4xl'>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            {t("aboutUs.v-paragraph")}
                             <span className={`${readMoreVision? "hidden" : "inline"}`}>..</span>
                             <span className={`${readMoreVision? "inline" : "hidden"}`}>
-                            <br/>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
-                            <button onClick={() => {setReadMoreVision(!readMoreVision)}} className='text-primary-200 inline ml-1'>{readMoreVision? "Ocultar" : "Leer más"}</button>
+                            <br/>{t("aboutUs.v-paragraph")}</span>
+                            <button onClick={() => {setReadMoreVision(!readMoreVision)}} className='text-primary-200 inline ml-1'>{readMoreVision? t("aboutUs.hide") : t("aboutUs.show")}</button>
                         </div>
                     </div>
                     
@@ -68,15 +69,13 @@ function AboutUs() {
 
                 <div className='w-full flex flex-col space-y-5 lg:space-y-0 lg:flex-row'>
                     <div className='w-full flex flex-col'>
-                        <div className='text-2xl md:text-3xl xl:text-4xl 2xl:text-5xl 3xl:text-6xl font-light text-heading mb-5'>Misión</div>
+                        <div className='text-2xl md:text-3xl xl:text-4xl 2xl:text-5xl 3xl:text-6xl font-light text-heading mb-5'>{t("aboutUs.mission")}</div>
                         <div className='text-lg xl:text-xl 3xl:text-2xl font-light text-gray-500 lg:max-w-sm xl:max-w-md 2xl:max-w-lg 3xl:max-w-4xl'>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            {t("aboutUs.m-paragraph")}
                             <span className={`${readMoreMision? "hidden" : "inline"}`}>..</span>
                             <span className={`${readMoreMision? "inline" : "hidden"}`}>
-                            <br/>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
-                            <button onClick={() => {setReadMoreMision(!readMoreMision)}} className='text-primary-200 inline ml-1'>{readMoreMision? "Ocultar" : "Leer más"}</button>
+                            <br/>{t("aboutUs.m-paragraph")}</span>
+                            <button onClick={() => {setReadMoreMision(!readMoreMision)}} className='text-primary-200 inline ml-1'>{readMoreMision? t("aboutUs.hide") : t("aboutUs.show")}</button>
                         </div>
                     </div>
                     
