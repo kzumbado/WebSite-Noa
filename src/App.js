@@ -15,7 +15,7 @@ function App() {
     <ThemeProvider>
     
    
-    <div className="App">
+    <div className="App bg-background dark:bg-backgroundNight">
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<React.Suspense fallback={<OnLoadingPage />}><LazyHomepage /> </React.Suspense>} />

@@ -9,7 +9,7 @@ function Footer() {
 
 
   return (
-    <footer className='bg-heading'>
+    <footer className='bg-heading dark:bg-headingNight'>
         <div className='flex flex-row w-full h-auto px-6 py-10 md:px-16 xl:px-40 3xl:px-60'>
 
                 <div className='text-orange-200 w-auto flex flex-col justify-center items-center font-semibold'>

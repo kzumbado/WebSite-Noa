@@ -9,12 +9,12 @@ const WhyChooseUs = () => {
     const {checked}=useContext(ThemeContext);
   return (
     
-    <div className={` ${ checked ? "bg-backgroundNight" : "bg-background"} flex flex-col w-full h-auto md:items-center px-6 md:px-16 py-20 md:py-25 xl:px-40 3xl:px-60`}>
+    <div className={`bg-background dark:bg-backgroundNight flex flex-col w-full h-auto md:items-center px-6 md:px-16 py-20 md:py-25 xl:px-40 3xl:px-60`}>
 
         <div className='flex w-full text-4xl md:text-5xl xl:text-6xl 2xl:text-7xl max-w-sm md:max-w-lg xl:max-w-xl 2xl:max-w-4xl leading-[45px] text-primary-200 font-bold md:justify-center'>
             {t("download.why")}
         </div>
-        <p className={`${ checked ? "text-gray-300" : "text-gray-500"}  max-w-xs md:max-w-sm 3xl:max-w-xl 3xl:text-2xl leading-6 mt-2 lg:mt-6 md:text-lg xl:text-lg 2xl:max-w-md text-start md:text-center `}>
+        <p className={`dark:text-navbar-scroll text-gray-500  max-w-xs md:max-w-sm 3xl:max-w-xl 3xl:text-2xl leading-6 mt-2 lg:mt-6 md:text-lg xl:text-lg 2xl:max-w-md text-start md:text-center `}>
            {t("download.crytography")}
 
         </p>
