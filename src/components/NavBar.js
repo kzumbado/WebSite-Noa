@@ -29,7 +29,7 @@ function NavBar({activeLink}) {
     </svg>`
 
     function toggleTheme() {
-        darkMode.current = !darkMode.current;
+        darkMode.current= !darkMode.current;
         localStorage.setItem('isDarkmode', darkMode.current);
     }
       
@@ -43,7 +43,7 @@ function NavBar({activeLink}) {
 
     useEffect(() => {
         const updateStatus = () => {
-            darkMode.current = localStorage.getItem('isDarkmode');
+             localStorage.getItem('isDarkmode');
         };
 
         if (updateMode.current) {
@@ -159,7 +159,7 @@ function NavBar({activeLink}) {
                         <li className='w-full font-semibold flex justify-center items-center h-14 text-center dark:text-background text-gray-500'>
                             <button 
                                 className="w-16 h-5 rounded-full bg-white dark:bg-background flex items-center transition duration-300 focus:outline-none shadow"
-                                onClick={toggleTheme}>
+                                onChange={toggleTheme}>
                                 <div
                                     id="switch-toggle"
                                     className="w-9 h-9 relative rounded-full transition duration-500 transform bg-yellow-500 -translate-x-2 p-1 text-white">

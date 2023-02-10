@@ -11,9 +11,23 @@ import global_en from './translations/en/global.json';
 
 
 
+const userLng= navigator.language;
+let setLng="";
+
+if(userLng==="es-ES"){
+    setLng="es"
+}
+else{
+  setLng="en"
+}
+
+console.log(setLng);
+
+
+
 i18next.init({
     interpolation:{ escapeValue:false},
-    lng:"es",
+    lng:setLng,
     resources:{
       es: {
         global:global_es
