@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, {useState, useEffect} from 'react';
 
 import {HiOutlineBars3BottomLeft} from 'react-icons/hi2';
 import {MdClose} from 'react-icons/md';
@@ -16,9 +16,7 @@ function NavBar({activeLink}) {
 
     const switchToggle = document.querySelector('#switch-toggle');
     const app = document.querySelector('.App');
-    const darkMode = useRef(false);
-    
-    const updateMode = useRef(true);
+    const [darkMode, setDarkMode] = useState(null);
 
     const darkIcon = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
@@ -29,8 +27,8 @@ function NavBar({activeLink}) {
     </svg>`
 
     function toggleTheme() {
-        darkMode.current= !darkMode.current;
-        localStorage.setItem('isDarkmode', darkMode.current);
+        setDarkMode(!darkMode);
+        localStorage.setItem('isDarkmode', JSON.stringify(!darkMode));
     }
       
     function setFixed() {
@@ -43,34 +41,33 @@ function NavBar({activeLink}) {
 
     useEffect(() => {
         const updateStatus = () => {
-             localStorage.getItem('isDarkmode');
+            let isDarkModeEnabled = JSON.parse(localStorage.getItem('isDarkmode'));
+            setDarkMode(isDarkModeEnabled);
+            
+            if (isDarkModeEnabled) {
+                switchToggle.classList.remove('bg-yellow-500','-translate-x-2');
+                switchToggle.classList.add('bg-gray-700','translate-x-full');
+                setTimeout(() => {
+                switchToggle.innerHTML = darkIcon;
+                }, 250);
+                app.classList.add("dark");
+            } else {
+                switchToggle.classList.add('bg-yellow-500','-translate-x-2');
+                switchToggle.classList.remove('bg-gray-700','translate-x-full');
+                setTimeout(() => {
+                switchToggle.innerHTML = lightIcon;
+                }, 250);
+                app.classList.remove("dark");
+            }
         };
-
-        if (updateMode.current) {
-            updateStatus();
-            updateMode.current = false;
-        }
 
         if (!switchToggle){
             return;
         }
 
-        if (darkMode.current) {
-            switchToggle.classList.remove('bg-yellow-500','-translate-x-2');
-            switchToggle.classList.add('bg-gray-700','translate-x-full');
-            setTimeout(() => {
-            switchToggle.innerHTML = darkIcon;
-            }, 250);
-            app.classList.add("dark");
-        } else {
-            switchToggle.classList.add('bg-yellow-500','-translate-x-2');
-            switchToggle.classList.remove('bg-gray-700','translate-x-full');
-            setTimeout(() => {
-            switchToggle.innerHTML = lightIcon;
-            }, 250);
-            app.classList.remove("dark");
-        }
-    },[app.classList, darkIcon, lightIcon, switchToggle]);
+        updateStatus();
+
+    },[app.classList, darkIcon, lightIcon, switchToggle, darkMode]);
 
     window.addEventListener("scroll", setFixed)
     return (
@@ -80,7 +77,6 @@ function NavBar({activeLink}) {
             <div className='text-lg font-semibold md:font-bold md:text-2xl text-heading dark:text-background'>
                 LOGO
             </div>
-            
 
             <ul className='hidden justify-end md:flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 lg:space-x-10 w-full'>
 
@@ -138,28 +134,28 @@ function NavBar({activeLink}) {
                 <div onMouseLeave={() => {setSettingsMenu(false)}} className={`${fix? "bg-navbar-scroll dark:bg-navbar-scrollNight filter shadow-md backdrop:blur-lg":"bg-background dark:bg-headingNight"} ${settingsMenu? "flex": "hidden"} shadow-lg absolute top-14 right-0 transition-all ease-in-out flex w-40 h-auto justify-evenly items-center mt-3 rounded-md`}>
                     <ul className='justify-evenly w-full flex flex-col text-center items-center'>
 
-                        <li className='w-full font-semibold flex justify-center items-center h-14 border-b border-slate-300 text-center dark:text-background text-gray-500'>
+                        <li className='w-full font-semibold flex justify-center items-center h-14 border-b border-slate-300 dark:border-gray-700 text-center dark:text-background text-gray-500'>
                             {t("navbar.language")}
                         </li>
-                        <li className='w-full flex justify-left items-center h-14 border-b border-slate-300 text-center space-x-4'>
+                        <li className='w-full flex justify-left items-center h-14 border-b border-slate-300 dark:border-gray-700 text-center space-x-4'>
                             <button className='w-full text-heading dark:text-background flex h-full items-center space-x-3 px-7 hover:bg-gray-300 dark:hover:bg-gray-700' onClick={()=>i18n.changeLanguage("es")}>
                                 <img className='w-6 h-6' src='https://catamphetamine.gitlab.io/country-flag-icons/3x2/ES.svg' alt=''></img>
                                 <div className='font-medium dark:text-background'>{t("navbar.spanish")}</div>
                             </button>
                         </li>
-                        <li className='w-full flex justify-left items-center h-14 border-b border-slate-300 text-center space-x-4'>
+                        <li className='w-full flex justify-left items-center h-14 border-b border-slate-300 dark:border-gray-700 text-center space-x-4'>
                             <button className='w-full text-heading dark:text-background flex h-full items-center space-x-3 px-7 hover:bg-gray-300 dark:hover:bg-gray-700' onClick={()=>i18n.changeLanguage("en")}>
                                 <img className='w-6 h-6' src='https://catamphetamine.gitlab.io/country-flag-icons/3x2/US.svg' alt=''></img>
                                 <div className='font-medium dark:text-background'>{t("navbar.english")}</div>
                             </button>
                         </li>
-                        <li className='w-full font-semibold flex justify-center items-center h-14 border-b border-slate-300 text-center dark:text-background text-gray-500'>
+                        <li className='w-full font-semibold flex justify-center items-center h-14 border-b border-slate-300 dark:border-gray-700 text-center dark:text-background text-gray-500'>
                             {t("navbar.mode")}
                         </li>
                         <li className='w-full font-semibold flex justify-center items-center h-14 text-center dark:text-background text-gray-500'>
                             <button 
                                 className="w-16 h-5 rounded-full bg-white dark:bg-background flex items-center transition duration-300 focus:outline-none shadow"
-                                onChange={toggleTheme}>
+                                onClick={toggleTheme}>
                                 <div
                                     id="switch-toggle"
                                     className="w-9 h-9 relative rounded-full transition duration-500 transform bg-yellow-500 -translate-x-2 p-1 text-white">

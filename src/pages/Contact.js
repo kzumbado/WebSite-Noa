@@ -85,9 +85,9 @@ const Contact = () => {
         <NavBar activeLink={'/contact'}/>
         <div className='h-[96px] bg-background dark:bg-backgroundNight'></div>
 
-        <div className={`bg-background dark:bg-backgroundNight relative flex flex-col h-auto w-full px-6 md:px-16 py-20 md:py-30 xl:px-40 3xl:px-60 xl:flex-row`}>
+        <div className={`bg-background dark:bg-backgroundNight min-h-screen relative flex flex-col h-auto w-full px-6 md:px-16 py-20 md:py-30 xl:px-40 3xl:px-60 xl:flex-row`}>
           
-          <div className="w-full flex flex-col items-center h-4/5 xl:h-screen xl:w-4/5 xl:items-start">
+          <div className="w-full flex flex-col items-center h-auto xl:w-4/5 xl:items-start">
             <div className='text-4xl md:text-5xl xl:text-6xl 2xl:text-7xl 3xl:text-8xl max-w-sm md:max-w-lg xl:max-w-xl 2xl:max-w-4xl leading-[45px] text-primary-200 font-bold'>
               {t("contact.contactUs")}
             </div>
@@ -116,61 +116,61 @@ const Contact = () => {
              </div>
           </div>       
 
-          <div className="absolute bottom-40 left-0 right-0 mx-auto bg-heading dark:bg-headingNight w-2/3 p-8 flex flex-col space-y-5 max-w-lg xl:hidden">
-            <div className="text-white font-semibold text-xl">Info</div>
-              <div className="w-full flex flex-row items-center space-x-3"> 
-                <HiOutlineMail className="w-7 h-7 text-white" />               
-                <p className="text-white">biosoftware@email.com</p>
-              </div>
+          <div className='relative w-full h-[500px] xl:flex xl:justify-end'>
+            <div className="absolute bottom-40 left-0 right-0 mx-auto bg-heading dark:bg-headingNight w-2/3 p-6 md:p-8 flex flex-col space-y-5 max-w-lg xl:hidden">
+              <div className="text-white font-semibold text-xl">Info</div>
+                <div className="w-full flex flex-row items-center space-x-3"> 
+                  <HiOutlineMail className="w-7 h-7 text-white" />               
+                  <p className="text-white">biosoftware@email.com</p>
+                </div>
 
-              <div className="w-full flex flex-row items-center space-x-3"> 
-                <HiOutlinePhone className="w-7 h-7 text-white" />
-                <p className="text-white">+506 2222-2222</p>
-              </div>
+                <div className="w-full flex flex-row items-center space-x-3"> 
+                  <HiOutlinePhone className="w-7 h-7 text-white" />
+                  <p className="text-white">+506 2222-2222</p>
+                </div>
 
-              <div className="w-full flex flex-row items-center space-x-3"> 
-                <AiOutlineGithub className="w-7 h-7 text-white" />
-                <p className="text-white">biosoftwaredev</p>
-              </div>
-          </div>
+                <div className="w-full flex flex-row items-center space-x-3"> 
+                  <AiOutlineGithub className="w-7 h-7 text-white" />
+                  <p className="text-white">biosoftwaredev</p>
+                </div>
+            </div>
 
-          
+            <div className="absolute left-0 right-0 mx-auto bottom-10 h-20 flex flex-row w-full justify-center space-x-5 xl:hidden">
+              <FaFacebookF className='w-5 h-5 md:w-6 md:h-6 text-white hover:text-primary-100 cursor-pointer'/>
+              <FaTwitter className='w-5 h-5 md:w-6 md:h-6 text-white hover:text-primary-100 cursor-pointer'/>
+              <FaInstagram className='w-5 h-5 md:w-6 md:h-6 text-white hover:text-primary-100 cursor-pointer'/>
+            </div>
 
-          <div className="absolute left-0 right-0 mx-auto bottom-10 h-20 flex flex-row w-full justify-center space-x-5 xl:hidden">
-            <FaFacebookF className='w-5 h-5 md:w-6 md:h-6 text-white hover:text-primary-100 cursor-pointer'/>
-            <FaTwitter className='w-5 h-5 md:w-6 md:h-6 text-white hover:text-primary-100 cursor-pointer'/>
-            <FaInstagram className='w-5 h-5 md:w-6 md:h-6 text-white hover:text-primary-100 cursor-pointer'/>
-          </div>
+            <div className="w-full xl:w-52 3xl:w-72 h-52 bg-primary-200 xl:h-[80vh] mt-60 xl:mt-0">
+              <div className="hidden w-full h-full relative z-40 xl:flex">
+                <div className="hidden absolute bottom-0 top-0 my-auto right-20 2xl:w-[300px] bg-heading dark:bg-headingNight 3xl:w-[350px] h-64 p-8 flex-col justify-center space-y-5 max-w-sm xl:flex 3xl:right-28">
+                  <div className="text-white font-semibold text-xl">Info</div>
+                    <div className="w-full flex flex-row items-center space-x-3"> 
+                      <HiOutlineMail className="w-7 h-7 text-white" />               
+                      <p className="text-white">biosoftware@email.com</p>
+                    </div>
 
-          
+                    <div className="w-full flex flex-row items-center space-x-3"> 
+                      <HiOutlinePhone className="w-7 h-7 text-white" />
+                      <p className="text-white">+506 2222-2222</p>
+                    </div>
 
-          <div className="w-full h-52 bg-primary-200 xl:w-1/5 xl:h-[1000px] mt-60 xl:mt-0">
-            <div className="hidden w-full h-full relative z-40 xl:flex">
-              <div className="hidden absolute bottom-0 top-0 my-auto right-20 2xl:right-24 2xl:w-[300px] bg-heading dark:bg-headingNight 3xl:w-[400px] h-80 p-8 flex-col justify-center space-y-5 max-w-sm xl:flex 3xl:right-60">
-                <div className="text-white font-semibold text-xl">Info</div>
-                  <div className="w-full flex flex-row items-center space-x-3"> 
-                    <HiOutlineMail className="w-7 h-7 text-white" />               
-                    <p className="text-white">biosoftware@email.com</p>
-                  </div>
+                    <div className="w-full flex flex-row items-center space-x-3"> 
+                      <AiOutlineGithub className="w-7 h-7 text-white" />
+                      <p className="text-white">biosoftwaredev</p>
+                    </div>
+                </div>
 
-                  <div className="w-full flex flex-row items-center space-x-3"> 
-                    <HiOutlinePhone className="w-7 h-7 text-white" />
-                    <p className="text-white">+506 2222-2222</p>
-                  </div>
-
-                  <div className="w-full flex flex-row items-center space-x-3"> 
-                    <AiOutlineGithub className="w-7 h-7 text-white" />
-                    <p className="text-white">biosoftwaredev</p>
-                  </div>
-              </div>
-
-              <div className="hidden absolute bottom-20 h-20 flex-row w-full justify-center left-0 right-0 mx-auto space-x-10 xl:flex">
-                <FaFacebookF className='w-5 h-5 md:w-6 md:h-6 text-white hover:text-primary-100 cursor-pointer'/>
-                <FaTwitter className='w-5 h-5 md:w-6 md:h-6 text-white hover:text-primary-100 cursor-pointer'/>
-                <FaInstagram className='w-5 h-5 md:w-6 md:h-6 text-white hover:text-primary-100 cursor-pointer'/>
+                <div className="hidden absolute bottom-0 h-20 flex-row w-full justify-center left-0 right-0 mx-auto space-x-10 xl:flex">
+                  <FaFacebookF className='w-5 h-5 md:w-6 md:h-6 text-white hover:text-primary-100 cursor-pointer'/>
+                  <FaTwitter className='w-5 h-5 md:w-6 md:h-6 text-white hover:text-primary-100 cursor-pointer'/>
+                  <FaInstagram className='w-5 h-5 md:w-6 md:h-6 text-white hover:text-primary-100 cursor-pointer'/>
+                </div>
               </div>
             </div>
+
           </div>
+          
         </div>
 
         <Footer/>

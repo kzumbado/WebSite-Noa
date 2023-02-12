@@ -9,7 +9,7 @@ const Download = () => {
     <>
 
     <NavBar activeLink={'/download'}/>
-        <div className='h-[96px]'></div>
+        <div className='h-[96px] bg-background dark:bg-backgroundNight'></div>
 
        <DownloadCard/>
     

@@ -21,10 +21,6 @@ else{
   setLng="en"
 }
 
-console.log(setLng);
-
-
-
 i18next.init({
     interpolation:{ escapeValue:false},
     lng:setLng,
