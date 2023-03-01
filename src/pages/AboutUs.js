@@ -17,7 +17,7 @@ function AboutUs() {
             <div className={`bg-background dark:bg-backgroundNight w-full px-6 md:px-16 py-20 md:py-40 xl:px-40 3xl:px-60 flex flex-col space-y-10 xl:space-y-20 3xl:space-y-40`}>
                 <div className='w-full flex flex-col items-center justify-center'>
                     <div className='text-4xl md:text-5xl xl:text-6xl 2xl:text-7xl 3xl:text-8xl font-bold text-primary-200'>{t("aboutUs.we")}</div>
-                    <div className='text-2xl md:text-3xl xl:text-4xl 2xl:text-5xl 3xl:text-6xl font-semibold text-primary-100'>Bios</div>
+                    <div className='text-2xl md:text-3xl xl:text-4xl 2xl:text-5xl 3xl:text-6xl font-semibold text-primary-100'>NOA</div>
 
                 </div>
 
@@ -26,10 +26,10 @@ function AboutUs() {
                         <div className= {`text-2xl md:text-3xl xl:text-4xl 2xl:text-5xl 3xl:text-6xl font-light dark:text-background text-heading mb-5`}>{t("aboutUs.history")}</div>
                         <div className={`text-lg xl:text-xl 3xl:text-2xl font-light dark:text-navbar-scroll text-gray-500 lg:max-w-sm xl:max-w-md 2xl:max-w-lg 3xl:max-w-4xl`}>
                             {t("aboutUs.h-paragraph")}
-                            <span className={`${readMoreHistory? "hidden" : "inline"}`}>..</span>
+                            {/* <span className={`${readMoreHistory? "hidden" : "inline"}`}>..</span>
                             <span className={`${readMoreHistory? "inline" : "hidden"}`}>
-                            <br/>{t("aboutUs.h-paragraph")}</span>
-                            <button onClick={() => {setReadMoreHistory(!readMoreHistory)}} className='text-primary-200 inline ml-1'>{readMoreHistory? t("aboutUs.hide") : t("aboutUs.show")}</button>
+                            <br/></span>
+                            <button onClick={() => {setReadMoreHistory(!readMoreHistory)}} className='text-primary-200 inline ml-1'>{readMoreHistory? t("aboutUs.hide") : t("aboutUs.show")}</button> */}
                         </div>
                     </div>
                     
@@ -51,11 +51,10 @@ function AboutUs() {
                     <div className='w-full flex flex-col lg:w-2/5'>
                         <div className={`text-2xl md:text-3xl xl:text-4xl 2xl:text-5xl 3xl:text-6xl font-light dark:text-background text-heading mb-5`}>{t("aboutUs.vision")}</div>
                         <div className={`text-lg xl:text-xl 3xl:text-2xl font-light dark:text-navbar-scroll text-gray-500 lg:max-w-sm xl:max-w-md 2xl:max-w-lg 3xl:max-w-4xl`}>
-                            {t("aboutUs.v-paragraph")}
-                            <span className={`${readMoreVision? "hidden" : "inline"}`}>..</span>
-                            <span className={`${readMoreVision? "inline" : "hidden"}`}>
-                            <br/>{t("aboutUs.v-paragraph")}</span>
-                            <button onClick={() => {setReadMoreVision(!readMoreVision)}} className='text-primary-200 inline ml-1'>{readMoreVision? t("aboutUs.hide") : t("aboutUs.show")}</button>
+                            {t("aboutUs.v-paragraph")}                            <span className={`${readMoreVision? "hidden" : "inline"}`}>..</span>
+                            {/* <span className={`${readMoreVision? "inline" : "hidden"}`}>
+                            <br/></span>
+                            <button onClick={() => {setReadMoreVision(!readMoreVision)}} className='text-primary-200 inline ml-1'>{readMoreVision? t("aboutUs.hide") : t("aboutUs.show")}</button> */}
                         </div>
                     </div>
                     
@@ -69,10 +68,10 @@ function AboutUs() {
                         <div className={`text-2xl md:text-3xl xl:text-4xl 2xl:text-5xl 3xl:text-6xl font-light dark:text-background text-heading mb-5`}>{t("aboutUs.mission")}</div>
                         <div className={`text-lg xl:text-xl 3xl:text-2xl font-light dark:text-navbar-scroll text-gray-500 lg:max-w-sm xl:max-w-md 2xl:max-w-lg 3xl:max-w-4xl`}>
                             {t("aboutUs.m-paragraph")}
-                            <span className={`${readMoreMision? "hidden" : "inline"}`}>..</span>
+                            {/* <span className={`${readMoreMision? "hidden" : "inline"}`}>..</span>
                             <span className={`${readMoreMision? "inline" : "hidden"}`}>
-                            <br/>{t("aboutUs.m-paragraph")}</span>
-                            <button onClick={() => {setReadMoreMision(!readMoreMision)}} className='text-primary-200 inline ml-1'>{readMoreMision? t("aboutUs.hide") : t("aboutUs.show")}</button>
+                            <br/></span>
+                            <button onClick={() => {setReadMoreMision(!readMoreMision)}} className='text-primary-200 inline ml-1'>{readMoreMision? t("aboutUs.hide") : t("aboutUs.show")}</button> */}
                         </div>
                     </div>
                     

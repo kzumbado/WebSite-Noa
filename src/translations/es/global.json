@@ -40,12 +40,12 @@
     },
     "aboutUs":{
         "we":"Nosotros",
-        "history":"Historia",
-        "h-paragraph":"Últimamente, una idea popular era que los líderes se enfocaran en el desarrollo de sus fortalezas y excluyeran sus debilidades. ¿En qué casos es esto un buen consejo? Para los grupos dos y tres, o para aquellos líderes que no poseen debilidades devaluadoras.",
+        "history":"Misión",
+        "h-paragraph":"La misión principal de NOA crear una plataforma de servicos en donde se pueda promover la inclusión tanto de pequeños como grandes emprendimientos, brindando servicios a lo largo del país, de facil acceso para los usuarios.",
         "vision":"Visión",
-        "v-paragraph":"Últimamente, una idea popular era que los líderes se enfocaran en el desarrollo de sus fortalezas y excluyeran sus debilidades. ¿En qué casos es esto un buen consejo? Para los grupos dos y tres, o para aquellos líderes que no poseen debilidades devaluadoras.",
-        "mission":"Misión",
-        "m-paragraph":"Últimamente, una idea popular era que los líderes se enfocaran en el desarrollo de sus fortalezas y excluyeran sus debilidades. ¿En qué casos es esto un buen consejo? Para los grupos dos y tres, o para aquellos líderes que no poseen debilidades devaluadoras.",
+        "v-paragraph":"La Visión de NOA es proporcinar a las personas el acceso a un servicio facil, rapido y seguro, ademas de permitir a las personas tener una igualdad de oportunidades ante la polarización empresarial.",
+        "mission":"Valores",
+        "m-paragraph":"En función de guiar pro-activamente nuestras funciones, tenemos presente la eficiencia y efectividad, buscando la mejora constante, inclusión y acercamiento al mundo, por lo que la innovación y conexión es el valor que mejor refleja a NOA.",
         "show":"Leer más",
         "hide":"Ocultar"
 
