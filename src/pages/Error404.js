@@ -12,7 +12,7 @@ export const Error404 = () => {
   return (
     <>
     
-    <div className="grid h-screen place-content-center bg-white">
+    <div className="grid h-screen place-content-center bg-white dark:bg-backgroundNight">
       <div className="text-center max-w-sm">
         <strong className="text-9xl font-black text-gray-300">404</strong>
 

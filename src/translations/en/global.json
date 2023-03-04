@@ -1,5 +1,4 @@
 {
-
     "navbar":{
         "home":"Home",
         "contact":"Contact",
@@ -70,6 +69,4 @@
         "message":"This page does not exist or is not available. Please return to home page.",
         "return":"Back to Home"
     }
-
-    
 }

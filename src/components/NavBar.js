@@ -1,12 +1,19 @@
 import React, {useState, useEffect} from 'react';
 
-import {HiOutlineBars3BottomLeft} from 'react-icons/hi2';
-import {MdClose} from 'react-icons/md';
-import {NavLink} from 'react-router-dom';
 import useTranslate from '../hooks/useTranslation';
-import {AiFillSetting} from 'react-icons/ai'
+import { UserAuth } from '../App';
+import {NavLink, useNavigate} from 'react-router-dom';
+import { signOut } from 'firebase/auth';
+import { auth } from '../config/firebase';
+
+import {  ArrowLeftOnRectangleIcon } from '@heroicons/react/24/outline';
+import { HiOutlineBars3BottomLeft } from 'react-icons/hi2';
+import { MdClose } from 'react-icons/md';
+import { AiFillSetting } from 'react-icons/ai';
 
 function NavBar({activeLink}) {
+
+    const {isUser} = UserAuth();
 
     const {t,i18n}= useTranslate();
 
@@ -25,6 +32,14 @@ function NavBar({activeLink}) {
     const lightIcon = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
     </svg>`
+
+    const navigate = useNavigate();
+
+    async function logOut() {
+        signOut(auth);
+        console.log("Cierro Sesión");
+        navigate("/")
+    }
 
     function toggleTheme() {
         setDarkMode(!darkMode);
@@ -74,11 +89,11 @@ function NavBar({activeLink}) {
         <div className='relative z-50'>
         <nav className={`w-full h-[96px] py-7 ${fix? "bg-navbar-scroll dark:bg-navbar-scrollNight border-b filter border-navbar-border-scroll dark:border-navbar-scrollNight shadow-md backdrop:blur-lg":"bg-background dark:bg-backgroundNight"} fixed  flex flex-row items-center px-6 md:px-16 xl:px-40 3xl:px-60`}>
 
-            <div className='text-lg font-semibold md:font-bold md:text-2xl text-heading dark:text-background'>
+            <div className={`text-lg font-semibold md:font-bold md:text-2xl text-heading dark:text-background ${isUser? "w-full":""}`}>
                 LOGO
             </div>
 
-            <ul className='hidden justify-end md:flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 lg:space-x-10 w-full'>
+            <ul className={`${isUser? "hidden" : "hidden justify-end md:flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 lg:space-x-10 w-full"}`}>
 
                 <li>
                     <NavLink to='/' className={`transition-all pb-4 text-heading dark:text-background text-lg font-medium hover:text-primary-100 hover:border-b-2 ${activeLink === '/'? "border-b-2" : ""} border-secondary-100 uppercase`}>
@@ -100,7 +115,7 @@ function NavBar({activeLink}) {
             </ul>
             
 
-            <div className='w-full flex justify-end md:hidden'>
+            {!isUser&&<div className='w-full flex justify-end md:hidden'>
                 <button onClick={()=>{setSubMenu(!subMenu)}} className='rounded-md w-10 h-auto cursor-pointer transition-all flex justify-center focus:outline-none focus:ring-1 focus:ring-inset focus:ring-secondary-100'>
                     
                     {
@@ -110,16 +125,16 @@ function NavBar({activeLink}) {
                         <HiOutlineBars3BottomLeft className='w-8 h-8 font-thin text-heading dark:text-background' />
                     }
                 </button>
-            </div>
+            </div>}
 
-            <NavLink
+            {!isUser&&<NavLink
                 to="/download"
                 className={`hidden md:inline-flex ml-8 md:ml-5 items-center justify-center whitespace-nowrap rounded-md border 
                           border-transparent px-6 py-2 text-base font-medium shadow-sm uppercase transition-all 
                           ${activeLink === '/download'? "border-2 border-primary-100 dark:border-primary-200 dark:hover:border-primary-100 text-primary-100 hover:bg-primary-100 hover:text-white dark:hover:text-white transition-all dark:text-primary-200" : "bg-primary-100 text-white hover:bg-primary-200"}`}
                 >
                 {t("navbar.download")}
-            </NavLink>
+            </NavLink>}
 
             <div className='ml-5 md:w-auto relative'>
                 {
@@ -152,7 +167,7 @@ function NavBar({activeLink}) {
                         <li className='w-full font-semibold flex justify-center items-center h-14 border-b border-slate-300 dark:border-gray-700 text-center dark:text-background text-gray-500'>
                             {t("navbar.mode")}
                         </li>
-                        <li className='w-full font-semibold flex justify-center items-center h-14 text-center dark:text-background text-gray-500'>
+                        <li className={`w-full font-semibold flex justify-center items-center h-14 text-center dark:text-background text-gray-500 ${isUser? "border-b border-slate-300 dark:border-gray-700" : ""}`}>
                             <button 
                                 className="w-16 h-5 rounded-full bg-white dark:bg-background flex items-center transition duration-300 focus:outline-none shadow"
                                 onClick={toggleTheme}>
@@ -165,12 +180,18 @@ function NavBar({activeLink}) {
                                 </div>
                             </button>
                         </li>
+                        {isUser&&<li className='w-full font-semibold flex justify-center items-center h-14 text-center dark:text-background text-gray-500'>
+                            <button onClick={logOut} className="w-full text-heading dark:text-background flex h-full items-center space-x-3 px-7 hover:bg-gray-300 dark:hover:bg-gray-700">
+                                <ArrowLeftOnRectangleIcon className='h-7 w-7' aria-hidden='true'/>
+                                <div className='font-medium dark:text-background'>Salir</div>
+                            </button>
+                        </li>}
                     </ul>
                 </div>
             </div>
         </nav>
         
-        <div className={`${fix? "bg-navbar-scroll dark:bg-navbar-scrollNight filter shadow-md backdrop:blur-lg":"bg-background dark:bg-backgroundNight"} ${subMenu? "flex": "hidden"} fixed top-24 md:hidden transition-all ease-in-out flex w-full h-auto justify-evenly items-center mt-3 rounded-md`}>
+        {!isUser&&<div className={`${fix? "bg-navbar-scroll dark:bg-navbar-scrollNight filter shadow-md backdrop:blur-lg":"bg-background dark:bg-backgroundNight"} ${subMenu? "flex": "hidden"} fixed top-24 md:hidden transition-all ease-in-out flex w-full h-auto justify-evenly items-center mt-3 rounded-md`}>
             <ul className='justify-evenly w-full flex flex-col text-center items-center'>
 
                 <li className='w-full flex justify-center items-center h-14 border-b border-slate-300 text-center uppercase'>
@@ -203,7 +224,7 @@ function NavBar({activeLink}) {
                 </li>
 
             </ul>
-        </div>
+        </div>}
         
         </div>
     )
