@@ -9,6 +9,12 @@ import i18next from 'i18next';
 import global_es from './translations/es/global.json';
 import global_en from './translations/en/global.json';
 
+import { Provider } from 'react-redux';
+import { legacy_createStore as createStore } from 'redux';
+
+const store = createStore(() => ({
+  isDarkmode: JSON.parse(localStorage.getItem('isDarkmode')),
+}));
 
 
 const userLng= navigator.language;
@@ -41,7 +47,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <I18nextProvider i18n={i18next}>
+    <Provider store={store}>
       <App />
+    </Provider>
     </I18nextProvider>
   </React.StrictMode>
 );

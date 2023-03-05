@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Error404 } from "./pages/Error404";
 import OnLoadingPage from "./components/OnLoadingPage";
 import React, { useState, useCallback, useContext } from "react";
+import { useSelector } from 'react-redux';
 import { onAuthStateChanged } from 'firebase/auth';
 import { UserContext } from './context/UserContext';
 import { auth } from './config/firebase';
@@ -15,6 +16,7 @@ const LazyAdminDashboard = React.lazy(() => import('./pages/AdminDashboard'));
 
 function App() {
   const [isUser, setIsUser] = useState(false);
+  const darkmode = useSelector(state => state.isDarkmode);
 
   onAuthStateChanged(auth, useCallback(async (userLogged) => {
     if (userLogged) {
@@ -25,8 +27,8 @@ function App() {
   }, []));
 
   return (
-    <div className="App bg-background dark:bg-backgroundNight">
-      <UserContext.Provider value = {{isUser}}>
+    <div className={`App bg-background dark:bg-backgroundNight ${darkmode ? "dark":""}`}>
+      <UserContext.Provider value = {{isUser, darkmode}}>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<React.Suspense fallback={<OnLoadingPage />}>{!isUser ? <LazyHomepage /> : <LazyAdminDashboard />} </React.Suspense>} />
