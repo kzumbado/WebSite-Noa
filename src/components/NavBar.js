@@ -90,7 +90,14 @@ function NavBar({activeLink}) {
         <nav className={`w-full h-[96px] py-7 ${fix? "bg-navbar-scroll dark:bg-navbar-scrollNight border-b filter border-navbar-border-scroll dark:border-navbar-scrollNight shadow-md backdrop:blur-lg":"bg-background dark:bg-backgroundNight"} fixed  flex flex-row items-center px-6 md:px-16 xl:px-40 3xl:px-60`}>
 
             <div className={`text-lg font-semibold md:font-bold md:text-2xl text-heading dark:text-background ${isUser? "w-full":""}`}>
-                LOGO
+                <NavLink to='/' className={`transition-all pb-4 text-heading dark:text-background text-lg font-medium hover:text-primary-100 hover:border-b-2 ${activeLink === '/'? "border-b-2" : ""} border-secondary-100 uppercase`}>
+                    {
+                        darkMode ?
+                        <img className='w-24 sm:w-32' src='img/Logo-Noa-Dark.png' alt="Logo"></img>
+                        :
+                        <img className='w-24 sm:w-32' src='img/Logo-Noa-Light.png' alt="Logo"></img>
+                    }
+                </NavLink>
             </div>
 
             <ul className={`${isUser? "hidden" : "hidden justify-end md:flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 lg:space-x-10 w-full"}`}>
