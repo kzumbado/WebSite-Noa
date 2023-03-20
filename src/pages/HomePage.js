@@ -16,80 +16,51 @@ import "../style.css";
 
 // import required modules
 import { Pagination, Autoplay, Navigation } from "swiper";
-import { collection, getDoc, getDocs } from 'firebase/firestore';
-import { database } from '../config/firebase';
+import { useDispatch, useSelector } from 'react-redux';
+import { startLoadingNews } from '../store/news/thunks';
 
 
- function   HomePage()  {
+
+
+ function  HomePage()  {
+
+  const dispatch= useDispatch();
+  const {noticia ,isLoading}= useSelector(state=>state.news);
+
+
   const [currentTitle, setCurrentTitle] = useState("");
   const [currentDescription, setCurrentDescription] = useState("");
-  const [news, setNews] = useState([]);
+
   const{ t }=useTranslate();
+  
+  useEffect(() => {
+    
+    dispatch(startLoadingNews());
+    
+  }, [])
+  
+
  
-  const exampleData = [
-    {
-      title: "Updates Enero",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      imageURL: "https://images.unsplash.com/photo-1678899711791-913ee743576f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"
-    },
-    {
-      title: "Updates Febrero",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      imageURL: "https://images.unsplash.com/photo-1679155506707-a072b305dd91?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1771&q=80"
-    },
-    {
-      title: "Updates Marzo",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      imageURL: "https://images.unsplash.com/photo-1679153354581-c37671b0fb4b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-    },
-    {
-      title: "Updates Abril",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      imageURL: "https://images.unsplash.com/photo-1679164841386-f6897cbe0e02?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2120&q=80"
-    },
-  ]
-
-  // const getNews=async()=>{
-    
-  //   const news=[];
-  //   const docRef= collection(database,'posts');
-  //   const docs= await getDocs(docRef);
-    
-
-  //     docs.forEach(doc=>{
-  //       news.push({ ...doc.data()});
-      
-  //     });
-
-  //     setNews(news);
-
-      
-   
-  // }
-
-  // useEffect(() => {
-  //   getNews();
-  
-   
-  // }, [])
   
 
-
-
-
-  const changePostInfo = async() => {
+  const changePostInfo = () => {
     
     var element = document.getElementsByClassName("swiper-slide-active");
     const index = element[0]?.id;
-    setCurrentTitle(exampleData[index]?.title);
-    setCurrentDescription(exampleData[index]?.description);
+     setCurrentTitle(noticia[index]?.title);
+     setCurrentDescription(noticia[index]?.description);
   }
 
-  const loadInitialPostInfo = async() => {
-    
-    setCurrentTitle(exampleData[0]?.title);
-    setCurrentDescription(exampleData[0]?.description);
+  const loadInitialPostInfo = () => {
+     
+     setCurrentTitle(noticia[0]?.title);
+     setCurrentDescription(noticia[0]?.description);
   }
+
+  
+
+  
+
   return (
     <div>
         <NavBar activeLink={'/'} />
@@ -124,7 +95,10 @@ import { database } from '../config/firebase';
               <p className='dark:text-navbar-scroll text-gray-500 text-justify 3xl:text-2xl md:text-lg xl:text-xl'>{currentDescription}</p>
           </div>
           <div className='w-full lg:w-3/5 xl:w-1/2 flex flex-col px-6 md:px-16 xl:pr-40 3xl:pr-60'>
-            <Swiper
+
+            { (isLoading)
+              ?<p>Cargando Noticias...</p>
+             :<Swiper
               slidesPerView={1}
               breakpoints={{
                 "@0.00": {
@@ -154,13 +128,15 @@ import { database } from '../config/firebase';
               className="mySwiper h-96 w-full"
             >
               {
-                exampleData.map((data, index) => (
-                  <SwiperSlide className='w-96 bg-white' key={index} id={index}>
-                    <img className='w-full h-full object-cover dark:opacity-90' src={data.imageURL} alt={data.title}></img>
+                 
+                   noticia.map((data, index) => (
+                  <SwiperSlide className='w-96 bg-white' key={data.id} id={index}>
+                    <img className='w-full h-full object-cover dark:opacity-90' src={data.image} alt={data.title}></img>
                   </SwiperSlide>
                 ))
               }
             </Swiper>
+              }
           </div>
           <div className='px-6 md:px-16 py-5 flex w-full lg:hidden lg:w-2/5 xl:w-1/2 flex-col'>
               <h1 className='text-center font-semibold text-2xl md:text-3xl py-2 text-primary-100 dark:text-primary-200'>{currentTitle}</h1>

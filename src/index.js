@@ -9,8 +9,9 @@ import i18next from 'i18next';
 import global_es from './translations/es/global.json';
 import global_en from './translations/en/global.json';
 
-import { Provider } from 'react-redux';
+import { Provider, useDispatch } from 'react-redux';
 import { legacy_createStore as createStore } from 'redux';
+import { startLoadingNews } from './store/news/thunks';
 
 const store = createStore(() => ({
   isDarkmode: JSON.parse(localStorage.getItem('isDarkmode')),
@@ -42,8 +43,8 @@ i18next.init({
 })
 
 
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
   <React.StrictMode>
     <I18nextProvider i18n={i18next}>

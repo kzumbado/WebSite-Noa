@@ -1,4 +1,4 @@
-import {useRef, useState} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import NavBar from '../components/NavBar';
 import TextareaAutosize from 'react-textarea-autosize';
 import {AiOutlineCloudUpload} from 'react-icons/ai'
@@ -7,6 +7,8 @@ import { storage } from '../config/firebase';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { collection, addDoc} from "firebase/firestore";
 import { database } from "../config/firebase";
+import { useDispatch, useSelector } from 'react-redux';
+import { startLoadingNews } from '../store/news/thunks';
 
 
 const postForm={
@@ -16,6 +18,20 @@ const postForm={
 
 
 function AdminDashboard() {
+
+  const {noticia}=useSelector(state=>state.news);
+  
+  const dispatch=useDispatch();
+
+  useEffect(() => {
+    
+    dispatch(startLoadingNews());
+    
+  }, [])
+  
+
+
+  console.log(noticia);
 
   const {title,description,onChangeForm,onResetForm}= useForm(postForm);
 
@@ -118,12 +134,17 @@ function AdminDashboard() {
             <button className='w-1/2 rounded-xl text-orange-200 bg-primary-100 hover:bg-primary-200 py-1'>
               Send
             </button>
-
-
-
-
           </form>
 
+        </div>
+
+        <div>
+
+          {
+            noticia.map((n=>(
+              <p>{n.title}</p>
+            )))
+          }
 
 
         </div>

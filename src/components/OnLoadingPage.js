@@ -1,6 +1,8 @@
 import React from 'react';
 
+
 function OnLoadingPage() {
+  
   return (
     <div className="flex w-screen h-screen justify-center items-center dark:bg-backgroundNight">
         <div className="flex items-center justify-center ">
