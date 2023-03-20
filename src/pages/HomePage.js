@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import NavBar from "../components/NavBar";
 import Footer from '../components/Footer';
 import {NavLink} from 'react-router-dom';
@@ -16,10 +16,14 @@ import "../style.css";
 
 // import required modules
 import { Pagination, Autoplay, Navigation } from "swiper";
+import { collection, getDoc, getDocs } from 'firebase/firestore';
+import { database } from '../config/firebase';
 
-function HomePage() {
+
+ function   HomePage()  {
   const [currentTitle, setCurrentTitle] = useState("");
   const [currentDescription, setCurrentDescription] = useState("");
+  const [news, setNews] = useState([]);
   const{ t }=useTranslate();
  
   const exampleData = [
@@ -45,14 +49,44 @@ function HomePage() {
     },
   ]
 
-  const changePostInfo = () => {
+  // const getNews=async()=>{
+    
+  //   const news=[];
+  //   const docRef= collection(database,'posts');
+  //   const docs= await getDocs(docRef);
+    
+
+  //     docs.forEach(doc=>{
+  //       news.push({ ...doc.data()});
+      
+  //     });
+
+  //     setNews(news);
+
+      
+   
+  // }
+
+  // useEffect(() => {
+  //   getNews();
+  
+   
+  // }, [])
+  
+
+
+
+
+  const changePostInfo = async() => {
+    
     var element = document.getElementsByClassName("swiper-slide-active");
     const index = element[0]?.id;
     setCurrentTitle(exampleData[index]?.title);
     setCurrentDescription(exampleData[index]?.description);
   }
 
-  const loadInitialPostInfo = () => {
+  const loadInitialPostInfo = async() => {
+    
     setCurrentTitle(exampleData[0]?.title);
     setCurrentDescription(exampleData[0]?.description);
   }
@@ -120,7 +154,7 @@ function HomePage() {
               className="mySwiper h-96 w-full"
             >
               {
-                exampleData?.map((data, index) => (
+                exampleData.map((data, index) => (
                   <SwiperSlide className='w-96 bg-white' key={index} id={index}>
                     <img className='w-full h-full object-cover dark:opacity-90' src={data.imageURL} alt={data.title}></img>
                   </SwiperSlide>

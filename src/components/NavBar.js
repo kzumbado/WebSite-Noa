@@ -36,7 +36,7 @@ function NavBar({activeLink}) {
     const navigate = useNavigate();
 
     async function logOut() {
-        signOut(auth);
+        await signOut(auth);
         console.log("Cierro Sesión");
         navigate("/")
     }

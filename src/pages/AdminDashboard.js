@@ -1,11 +1,11 @@
-import {useRef} from 'react';
+import {useRef, useState} from 'react';
 import NavBar from '../components/NavBar';
 import TextareaAutosize from 'react-textarea-autosize';
 import {AiOutlineCloudUpload} from 'react-icons/ai'
 import {useForm} from '../hooks/useForm'
 import { storage } from '../config/firebase';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { collection, getDocs, setDoc, doc, updateDoc, deleteDoc, increment} from "firebase/firestore";
+import { collection, addDoc} from "firebase/firestore";
 import { database } from "../config/firebase";
 
 
@@ -17,7 +17,11 @@ const postForm={
 
 function AdminDashboard() {
 
-  const {title,description,onChangeForm}= useForm(postForm);
+  const {title,description,onChangeForm,onResetForm}= useForm(postForm);
+
+  const [image, setImage]= useState([])
+
+  const [meta, setMeta] = useState({});
 
   const fileInputRef= useRef();
 
@@ -26,20 +30,41 @@ function AdminDashboard() {
     if(target.files===0) return ;
     console.log('subiendo archivos');
     
-    
-
-
+    setImage(target.files[0]);
+  
+  
   }
 
+  
 
-  const onSubmit=(event)=>{
+  
 
+
+
+  const onSubmit=async(event)=>{
+    event.preventDefault();
+
+    if(image===null)return;
     if(title==='') return ;
     if(description==='') return ;
 
-    event.preventDefault();
-    console.log({title, description});
-    console.log(event.target);
+    const imageName=image.name;
+
+    const imageRef= await ref(storage,`newsImages/${imageName}`);
+
+
+     uploadBytes(imageRef,image,meta).then(async()=>{
+      const imageURL= await getDownloadURL(imageRef);
+
+      const newsRef= collection(database,'posts');
+
+      await addDoc(newsRef,{title:title, description:description,image:imageURL,date: new Date().getDay()});
+      alert('Nota creada');
+      onResetForm();
+     }).catch(error=>{
+      console.log(error);
+     })
+
 
   }
 
@@ -78,12 +103,12 @@ function AdminDashboard() {
             <input 
               type="file" 
               ref={fileInputRef}
-              multiple
               onChange={onFileInputChange}
               style={{display:'none'}}
             />
 
             <button
+                type='button'
                  onClick={()=>fileInputRef.current.click()}
                  title='Upload Images'
                  className='text-5xl mx-2 my-2 text-primary-200'>
