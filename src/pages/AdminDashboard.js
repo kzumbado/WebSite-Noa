@@ -1,4 +1,4 @@
-import {useEffect, useRef, useState} from 'react';
+import { useRef, useState} from 'react';
 import NavBar from '../components/NavBar';
 import TextareaAutosize from 'react-textarea-autosize';
 import {AiOutlineCloudUpload} from 'react-icons/ai'
@@ -31,11 +31,11 @@ function AdminDashboard() {
   
   const dispatch=useDispatch();
 
-  useEffect(() => {
+  
     
     dispatch(startLoadingNews());
     
-  }, [])
+  
   
 
 
@@ -61,10 +61,6 @@ function AdminDashboard() {
 
   
 
-  
-
-
-
   const onSubmit=async(event)=>{
     event.preventDefault();
 
@@ -84,11 +80,11 @@ function AdminDashboard() {
 
       await addDoc(newsRef,{title:title, description:description,image:imageURL,imageID:small_id,date: new Date().getTime()});
       alert('Nota creada');
+      dispatch(startLoadingNews());
       onResetForm();
      }).catch(error=>{
       console.log(error);
      })
-
 
   }
 
@@ -145,20 +141,19 @@ function AdminDashboard() {
               </form>
 
           </div>
-
-            
-
-                {
-                  (isLoading)
-                  ? <p>Cargando noticias....</p>
-                  : noticia.map((n=>(
-                      <NewsUpdateDelete key={n.id} news={n}/>
-                   )))
-                 }
-
-                 
-
-           
+                <div className='w-auto h-auto'>
+                    <h1 className='px-2 py-2 text-xl font-bold'>Edit News</h1>
+                        {
+                          (noticia===0)
+                          ? <h1>No hay noticias</h1>
+                          :(isLoading)
+                          ? <p>Cargando noticias....</p>
+                          : noticia.map((n=>(
+                              <NewsUpdateDelete key={n.id} news={n}/>
+                          )))
+                        }
+                </div>
+                
 
        </div>
 

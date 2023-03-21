@@ -4,7 +4,7 @@ import TextareaAutosize from 'react-textarea-autosize';
 import { useForm } from '../hooks/useForm';
 import { MdDelete,MdSave} from 'react-icons/md'
 import { useDispatch } from 'react-redux';
-import {startDeleteNews, startUpdateNews} from '.././store/news/thunks'
+import {startDeleteNews, startLoadingNews, startUpdateNews} from '.././store/news/thunks'
 
 const NewsUpdateDelete = ({news={}}) => {
 
@@ -13,7 +13,7 @@ const NewsUpdateDelete = ({news={}}) => {
     description:news.description
    });
 
-   const [image, setImage]= useState([])
+   const [image, setImage]= useState([]);
 
    const dispatch= useDispatch();
 
@@ -35,6 +35,7 @@ const NewsUpdateDelete = ({news={}}) => {
         const imageURL=news.image;
         const imageID=news.imageID;
         const file= image;
+        
         const n={
             title,
             description,
@@ -45,11 +46,13 @@ const NewsUpdateDelete = ({news={}}) => {
             file
         }
         dispatch(startUpdateNews(n));
+        dispatch(startLoadingNews());
   }
 
 
   const onDelete=()=>{
     dispatch(startDeleteNews(news.id,news.imageID));
+   
 }
 
 
