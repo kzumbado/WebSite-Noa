@@ -10,7 +10,7 @@ import { database } from "../config/firebase";
 import { useDispatch, useSelector } from 'react-redux';
 import { startLoadingNews } from '../store/news/thunks';
 import NewsUpdateDelete from '../components/NewsUpdateDelete';
-
+import { v4 as uuid } from 'uuid';
 
 const postForm={
   title:'',
@@ -22,6 +22,10 @@ const postForm={
 
 
 function AdminDashboard() {
+  const unique_id = uuid();
+  const small_id= unique_id.slice(0,6)
+
+
 
   const {noticia,isLoading}=useSelector(state=>state.news);
   
@@ -35,7 +39,7 @@ function AdminDashboard() {
   
 
 
-  console.log({noticia,isLoading});
+  // console.log({noticia,isLoading});
 
   const {title,description,onChangeForm,onResetForm}= useForm(postForm);
 
@@ -68,21 +72,17 @@ function AdminDashboard() {
     if(title==='') return ;
     if(description==='') return ;
 
-
-
-
     
-    const imageName=image.name;
 
-    const imageRef= await ref(storage,`newsImages/${imageName}`);
+    const imageRef= await ref(storage,`newsImages/${small_id}`);
 
 
      uploadBytes(imageRef,image).then(async()=>{
       const imageURL= await getDownloadURL(imageRef);
 
-      const newsRef= collection(database,'posts');
+      const newsRef= collection(database,`posts`)
 
-      await addDoc(newsRef,{title:title, description:description,image:imageURL,date: new Date().getDay()});
+      await addDoc(newsRef,{title:title, description:description,image:imageURL,imageID:small_id,date: new Date().getTime()});
       alert('Nota creada');
       onResetForm();
      }).catch(error=>{
@@ -101,7 +101,7 @@ function AdminDashboard() {
         <NavBar activeLink={'/'} />
         <div className='h-[96px] bg-background dark:bg-backgroundNight'></div>
        
-       <div className='w-full h-full'>
+       <div className='w-full h-auto'>
           <div className='w-full h-full flex flex-col '>
 
             <h1 className='px-2 py-2 text-xl font-bold'>Create Post</h1>

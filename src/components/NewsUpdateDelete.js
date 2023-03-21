@@ -1,5 +1,5 @@
 
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import TextareaAutosize from 'react-textarea-autosize';
 import { useForm } from '../hooks/useForm';
 import { MdDelete,MdSave} from 'react-icons/md'
@@ -13,6 +13,7 @@ const NewsUpdateDelete = ({news={}}) => {
     description:news.description
    });
 
+   const [image, setImage]= useState([])
 
    const dispatch= useDispatch();
 
@@ -23,7 +24,7 @@ const NewsUpdateDelete = ({news={}}) => {
     if(target.files===0) return ;
     console.log('subiendo archivos');
     
-    // setImage(target.files[0]);
+    setImage(target.files[0]);
   }
 
 
@@ -31,20 +32,24 @@ const NewsUpdateDelete = ({news={}}) => {
         event.preventDefault();
         const id=news.id;
         const date=news.date;
-        const image=news.image;
+        const imageURL=news.image;
+        const imageID=news.imageID;
+        const file= image;
         const n={
             title,
             description,
             id,
             date,
-            image
+            imageURL,
+            imageID,
+            file
         }
         dispatch(startUpdateNews(n));
   }
 
 
   const onDelete=()=>{
-    dispatch(startDeleteNews(news.id));
+    dispatch(startDeleteNews(news.id,news.imageID));
 }
 
 
