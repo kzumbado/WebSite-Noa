@@ -6,10 +6,23 @@ export const newsSlice = createSlice({
      isLoading:true
     },
     reducers: {
-     setNews: (state, action) => {
+     setNews: (state, {payload}) => {
         state.isLoading=false;
-         state.noticia=action.payload;
+         state.noticia=payload;
      },
+     updateNews:(state, {payload})=>{
+        state.isLoading=false;
+        state.noticia=state.noticia.map(n=>{
+            if(n.id===payload.id){
+                return payload;
+            }
+            return n;
+        });
+     },
+     deleteNews:(state,{payload})=>{
+        state.noticia=state.noticia.filter(n=>n.id !== payload);
+        
+     }
 }
 });
-export const { setNews } = newsSlice.actions;
+export const { setNews,updateNews,deleteNews } = newsSlice.actions;
