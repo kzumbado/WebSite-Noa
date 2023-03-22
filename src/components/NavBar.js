@@ -10,8 +10,6 @@ import {  ArrowLeftOnRectangleIcon } from '@heroicons/react/24/outline';
 import { HiOutlineBars3BottomLeft } from 'react-icons/hi2';
 import { MdClose } from 'react-icons/md';
 import { AiFillSetting } from 'react-icons/ai';
-import { useDispatch } from 'react-redux';
-import { startLoadingNews } from '../store/news/thunks';
 
 function NavBar({activeLink}) {
 

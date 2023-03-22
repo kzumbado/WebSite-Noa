@@ -1,13 +1,12 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Error404 } from "./pages/Error404";
 import OnLoadingPage from "./components/OnLoadingPage";
-import React, { useState, useCallback, useContext, useEffect } from "react";
-import { Provider, useDispatch, useSelector } from 'react-redux';
+import React, { useState, useCallback, useContext } from "react";
+import { Provider, useSelector } from 'react-redux';
 import { onAuthStateChanged } from 'firebase/auth';
 import { UserContext } from './context/UserContext';
 import { auth } from './config/firebase';
 import { store } from "./store/store";
-import { startLoadingNews } from "./store/news/thunks";
 
 const LazyHomepage = React.lazy(() => import('./pages/HomePage'));
 const LazyDownload = React.lazy(() => import('./pages/Download'));

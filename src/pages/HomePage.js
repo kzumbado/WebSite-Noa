@@ -19,9 +19,6 @@ import { Pagination, Autoplay, Navigation } from "swiper";
 import { useDispatch, useSelector } from 'react-redux';
 import { startLoadingNews } from '../store/news/thunks';
 
-
-
-
  function  HomePage()  {
 
   const dispatch= useDispatch();
@@ -37,10 +34,7 @@ import { startLoadingNews } from '../store/news/thunks';
     
     dispatch(startLoadingNews());
     
-  }, [])
-  
-
- 
+  }, [dispatch])
   
 
   const changePostInfo = () => {
@@ -56,10 +50,6 @@ import { startLoadingNews } from '../store/news/thunks';
      setCurrentTitle(noticia[0]?.title);
      setCurrentDescription(noticia[0]?.description);
   }
-
-  
-
-  
 
   return (
     <div>
@@ -131,7 +121,7 @@ import { startLoadingNews } from '../store/news/thunks';
                  
                    noticia.map((data, index) => (
                   <SwiperSlide className='w-96 bg-white' key={data.id} id={index}>
-                    <img className='w-full h-full object-cover dark:opacity-90' src={data.image} alt={data.title}></img>
+                    <img className='w-full h-full object-cover dark:opacity-90' src={data.imageURL} alt={data.title}></img>
                   </SwiperSlide>
                 ))
               }

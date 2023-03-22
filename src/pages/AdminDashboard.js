@@ -65,7 +65,7 @@ function AdminDashboard() {
     if(title==='') return ;
     if(description==='') return ;
 
-    const imageRef= await ref(storage,`newsImages/${small_id}`);
+    const imageRef= ref(storage,`newsImages/${small_id}`);
 
      uploadBytes(imageRef,image).then(async()=>{
       const imageURL= await getDownloadURL(imageRef);
@@ -88,27 +88,27 @@ function AdminDashboard() {
         <NavBar activeLink={'/'} />
         <div className='h-[96px] bg-background dark:bg-backgroundNight'></div>
        
-       <div className='w-full h-auto'>
-          <div className='w-full h-full flex flex-col '>
+       <div className='w-full h-auto px-6 md:px-16 xl:px-40 3xl:px-60'>
+          <div className='w-auto max-w-xl h-full flex flex-col bg-white rounded-lg p-8'>
 
-            <h1 className='px-2 py-2 text-xl font-bold'>Create Post</h1>
+            <h1 className='text-2xl font-bold py-5 text-primary-200 text-center'>Create Post</h1>
 
-              <form onSubmit={onSubmit} className='flex flex-col w-full h-full justify-center items-center ml-2 my-2'>
+              <form onSubmit={onSubmit} className='flex flex-col w-full h-full justify-start items-center'>
                 <input
                   onChange={onChangeForm}
                   name='title'
                   placeholder='Title'
                   type='text'
                   value={title}
-                  className='w-full pl-2 ml-2'
+                  className={`text-heading mt-2 max-w-lg w-full h-[40px] border-b-2 dark:text-background dark:placeholder-background" border-gray-400 bg-transparent placeholder-gray-500 pl-3 pb-1 outline-none focus:border-2 focus:rounded-md focus:border-primary-200`}
                 />
                 <TextareaAutosize 
-                onChange={onChangeForm} 
-                placeholder='Description' 
-                name='description' 
-                value={description} 
-                className='w-full pl-2 ml-2 my-2 resize-none'
-                maxRows={3}
+                  onChange={onChangeForm} 
+                  placeholder='Description' 
+                  name='description' 
+                  value={description} 
+                  className={`text-heading max-w-lg w-full mt-5 xl:mt-8 pt-2 border-b-2 dark:text-background dark:placeholder-background" border-gray-400 bg-transparent placeholder-gray-500 pl-3 outline-none focus:border-2 focus:rounded-md focus:border-primary-200 overflow-hidden resize-none pb-2`}
+                  maxRows={5}
                 />
               
                 <input 
@@ -126,7 +126,9 @@ function AdminDashboard() {
                   <AiOutlineCloudUpload/>
                 </button>
 
-                <button className='w-1/2 rounded-xl text-orange-200 bg-primary-100 hover:bg-primary-200 py-1 mb-3'>
+                <button
+                  className='w-full mt-5 xl:mt-8 max-w-lg bg-primary-100 py-3 text-white font-semibold hover:bg-primary-200 tracking-widest uppercase'
+                >
                   Send
                 </button>
               </form>
