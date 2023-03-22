@@ -1,4 +1,4 @@
-import { useRef, useState} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import NavBar from '../components/NavBar';
 import TextareaAutosize from 'react-textarea-autosize';
 import {AiOutlineCloudUpload} from 'react-icons/ai'
@@ -22,20 +22,16 @@ const postForm={
 
 
 function AdminDashboard() {
-  const unique_id = uuid();
-  const small_id= unique_id.slice(0,6)
-
-
 
   const {noticia,isLoading}=useSelector(state=>state.news);
   
   const dispatch=useDispatch();
 
-  
+  useEffect(() => {
     
     dispatch(startLoadingNews());
     
-  
+  }, [dispatch])
   
 
 
@@ -59,36 +55,31 @@ function AdminDashboard() {
   
   }
 
-  
-
   const onSubmit=async(event)=>{
     event.preventDefault();
+
+    const unique_id = uuid();
+    const small_id= unique_id.slice(0,6);
 
     if(image===null)return;
     if(title==='') return ;
     if(description==='') return ;
 
-    
-
     const imageRef= await ref(storage,`newsImages/${small_id}`);
-
 
      uploadBytes(imageRef,image).then(async()=>{
       const imageURL= await getDownloadURL(imageRef);
 
       const newsRef= collection(database,`posts`)
 
-      await addDoc(newsRef,{title:title, description:description,image:imageURL,imageID:small_id,date: new Date().getTime()});
+      await addDoc(newsRef,{title:title, description:description,imageURL:imageURL,imageID:small_id,date: new Date().getTime()});
       alert('Nota creada');
       dispatch(startLoadingNews());
       onResetForm();
      }).catch(error=>{
       console.log(error);
      })
-
   }
-
-
 
   return (
 
@@ -141,28 +132,14 @@ function AdminDashboard() {
               </form>
 
           </div>
-                <div className='w-auto h-auto'>
-                    <h1 className='px-2 py-2 text-xl font-bold'>Edit News</h1>
-                        {
-                          (noticia===0)
-                          ? <h1>No hay noticias</h1>
-                          :(isLoading)
-                          ? <p>Cargando noticias....</p>
-                          : noticia.map((n=>(
-                              <NewsUpdateDelete key={n.id} news={n}/>
-                          )))
-                        }
-                </div>
-                
-
+          {
+            (isLoading)
+            ? <p>Cargando noticias....</p>
+            : noticia.map((n=>(
+                <NewsUpdateDelete key={n.id} news={n}/>
+             )))
+           }
        </div>
-
-        
-
-       
-
-
-
     </div>
   )
 }
