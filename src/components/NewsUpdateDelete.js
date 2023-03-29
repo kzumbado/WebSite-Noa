@@ -1,10 +1,11 @@
 
-import { useRef, useState,useEffect } from 'react';
+import { useRef, useState } from 'react';
 import TextareaAutosize from 'react-textarea-autosize';
 import { useForm } from '../hooks/useForm';
 import { MdDelete,MdSave} from 'react-icons/md'
 import { useDispatch } from 'react-redux';
 import {startDeleteNews, startUpdateNews,startLoadingNews} from '.././store/news/thunks'
+import { useNavigate } from 'react-router-dom';
 
 const NewsUpdateDelete = ({post={}}) => {
 
@@ -17,7 +18,12 @@ const NewsUpdateDelete = ({post={}}) => {
 
    const [disableBtn,setDisableBtn]=useState(true)
 
-    
+   const navigate= useNavigate();
+  
+   const onNavigateToPost=()=>{
+     navigate('/admin/post',{state:{post}});
+     dispatch(startLoadingNews());
+   }
 
 
 
@@ -97,6 +103,14 @@ const NewsUpdateDelete = ({post={}}) => {
             onChange={onFileInputChange}
             style={{display:'none'}}
           />
+
+          <button
+          type='button'
+          onClick={onNavigateToPost}
+          >
+            Ver mas...
+          </button>
+
 
           <button
             type='button'

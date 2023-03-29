@@ -24,10 +24,7 @@ export const startLoadingNews=()=>{
 export const startUpdateNews=(news)=>{
     return async (dispatch)=>{
 
-        console.log(news);
         if(!news)return ;
-        
-
         
         const imageRef= ref(storage,`newsImages/${news.imageID}`);
 
@@ -35,8 +32,10 @@ export const startUpdateNews=(news)=>{
         try {
 
             let imageURL;
+            
 
-            if(!news.image){
+            if(news.image.length ===0){
+                console.log('no imagen');
                  imageURL=news.imageURL
             }else{
 

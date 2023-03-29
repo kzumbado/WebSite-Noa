@@ -99,8 +99,8 @@ function AdminDashboard() {
         <NavBar activeLink={'/'} />
         <div className='h-[96px] bg-background dark:bg-backgroundNight'></div>
        
-       <div className='w-full h-auto px-6 md:px-16 xl:px-40 3xl:px-60 py-10'>
-          <div className='w-auto max-w-xl h-full flex flex-col bg-white rounded-lg p-8'>
+       <div className='w-full h-auto px-6 md:px-16 xl:px-40 3xl:px-60 py-10 '>
+          <div className='w-auto max-w-xl h-full flex flex-col bg-white rounded-lg p-8 '>
 
             <h1 className='text-2xl lg:text-3xl font-bold py-5 text-primary-200 text-center'>Create Post</h1>
 

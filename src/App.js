@@ -13,6 +13,7 @@ const LazyDownload = React.lazy(() => import('./pages/Download'));
 const LazyAboutUs = React.lazy(() => import('./pages/AboutUs'));
 const LazyContact = React.lazy(() => import('./pages/Contact'));
 const LazyLogin = React.lazy(() => import('./pages/LoginPage'));
+const LazyPost = React.lazy(() => import('./pages/PostPage'));
 const LazyAdminDashboard = React.lazy(() => import('./pages/AdminDashboard'));
 
 function App() {
@@ -45,6 +46,7 @@ function App() {
               <Route path="/aboutus" element={<React.Suspense fallback={<OnLoadingPage />}><LazyAboutUs /> </React.Suspense>} />
               <Route path="/contact" element={<React.Suspense fallback={<OnLoadingPage />}><LazyContact /> </React.Suspense>} />
               <Route path="/admin" element={<React.Suspense fallback={<OnLoadingPage />}><LazyLogin /> </React.Suspense>} />
+              <Route path="/admin/post" element={<React.Suspense fallback={<OnLoadingPage />}><LazyPost /> </React.Suspense>} />
               <Route path="*" element={<Error404 />} />
             </Routes>
           </BrowserRouter>
