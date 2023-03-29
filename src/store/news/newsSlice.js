@@ -2,17 +2,17 @@ import { createSlice } from '@reduxjs/toolkit';
 export const newsSlice = createSlice({
     name: 'news',
     initialState: {
-     noticia:[],
+     posts:[],
      isLoading:true
     },
     reducers: {
      setNews: (state, {payload}) => {
         state.isLoading=false;
-         state.noticia=payload;
+         state.posts=payload;
      },
      updateNews:(state, {payload})=>{
         state.isLoading=false;
-        state.noticia=state.noticia.map(n=>{
+        state.posts=state.posts.map(n=>{
             if(n.id===payload.id){
                 return payload;
             }
@@ -20,7 +20,7 @@ export const newsSlice = createSlice({
         });
      },
      deleteNews:(state,{payload})=>{
-        state.noticia=state.noticia.filter(n=>n.id !== payload);
+        state.posts=state.posts.filter(n=>n.id !== payload);
         
      }
 }

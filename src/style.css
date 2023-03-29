@@ -1,11 +1,11 @@
 .swiper-pagination.swiper-pagination-fraction.swiper-pagination-horizontal {
     color: #5F9C92;
-    height: 370px;
+    height: 385px;
     z-index: 10;
     font-size: 16px;
 }
-.swiper.swiper-initialized.swiper-horizontal.swiper-backface-hidden.mySwiper.h-96.w-full {
-    padding-top: 40px;
+.swiper.swiper-initialized.swiper-horizontal.swiper-backface-hidden.mySwiper.h-\[400px\].w-full {
+    padding-top: 60px;
 }
 
 .swiper-button-next {

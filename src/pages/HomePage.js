@@ -22,7 +22,7 @@ import { startLoadingNews } from '../store/news/thunks';
  function  HomePage()  {
 
   const dispatch= useDispatch();
-  const {noticia ,isLoading}= useSelector(state=>state.news);
+  const {posts ,isLoading}= useSelector(state=>state.news);
 
 
   const [currentTitle, setCurrentTitle] = useState("");
@@ -41,14 +41,14 @@ import { startLoadingNews } from '../store/news/thunks';
     
     var element = document.getElementsByClassName("swiper-slide-active");
     const index = element[0]?.id;
-     setCurrentTitle(noticia[index]?.title);
-     setCurrentDescription(noticia[index]?.description);
+     setCurrentTitle(posts[index]?.title);
+     setCurrentDescription(posts[index]?.description);
   }
 
   const loadInitialPostInfo = () => {
      
-     setCurrentTitle(noticia[0]?.title);
-     setCurrentDescription(noticia[0]?.description);
+     setCurrentTitle(posts[0]?.title);
+     setCurrentDescription(posts[0]?.description);
   }
 
   return (
@@ -79,7 +79,7 @@ import { startLoadingNews } from '../store/news/thunks';
 
         </div>
 
-        <div className='w-full flex flex-col lg:flex-row bg-background dark:bg-backgroundNight py-12 md:py-32'>
+        {posts[0]?.id&&<div className='w-full flex flex-col lg:flex-row bg-background dark:bg-backgroundNight py-12 md:py-32'>
           <div className='hidden md:px-16 xl:px-40 3xl:px-60 py-5 lg:flex w-2/5 xl:w-1/2 flex-col justify-center items-center'>
               <h1 className='text-center font-semibold text-2xl md:text-3xl 2xl:text-4xl py-6 text-primary-100 dark:text-primary-200'>{currentTitle}</h1>
               <p className='dark:text-navbar-scroll text-gray-500 text-justify 3xl:text-2xl md:text-lg xl:text-xl'>{currentDescription}</p>
@@ -96,7 +96,7 @@ import { startLoadingNews } from '../store/news/thunks';
                   spaceBetween: 10,
                 },
                 "@1.4": {
-                  slidesPerView: 2,
+                  slidesPerView: 1,
                   spaceBetween: 20,
                 },
               }}
@@ -115,13 +115,12 @@ import { startLoadingNews } from '../store/news/thunks';
               }}
               navigation={true}
               modules={[Navigation, Pagination, Autoplay]}
-              className="mySwiper h-96 w-full"
+              className="mySwiper h-[400px] w-full"
             >
               {
-                 
-                   noticia.map((data, index) => (
-                  <SwiperSlide className='w-96 bg-white' key={data.id} id={index}>
-                    <img className='w-full h-full object-cover dark:opacity-90' src={data.imageURL} alt={data.title}></img>
+                posts.map((data, index) => (
+                  <SwiperSlide className='w-80 bg-transparent' key={data.id} id={index}>
+                    <img className='object-cover w-full dark:opacity-90' src={data.imageURL} alt={data.title}></img>
                   </SwiperSlide>
                 ))
               }
@@ -132,7 +131,7 @@ import { startLoadingNews } from '../store/news/thunks';
               <h1 className='text-center font-semibold text-2xl md:text-3xl py-2 text-primary-100 dark:text-primary-200'>{currentTitle}</h1>
               <p className='dark:text-navbar-scroll text-gray-500 text-justify 3xl:text-2xl md:text-lg xl:text-xl'>{currentDescription}</p>
           </div>
-        </div>
+        </div>}
 
         <div className={`bg-background dark:bg-backgroundNight w-full flex flex-col lg:items-center px-6 md:px-16 pb-20 md:pb-40 xl:px-40 3xl:px-60`}>
           <div className='text-2xl md:text-3xl xl:text-4xl 2xl:text-5xl 3xl:text-6xl max-w-sm md:max-w-lg xl:max-w-xl 2xl:max-w-4xl leading-[45px] text-primary-200 font-bold'>

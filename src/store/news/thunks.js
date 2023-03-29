@@ -26,6 +26,7 @@ export const startUpdateNews=(news)=>{
 
         console.log(news);
         if(!news)return ;
+        
 
         
         const imageRef= ref(storage,`newsImages/${news.imageID}`);
@@ -33,13 +34,22 @@ export const startUpdateNews=(news)=>{
 
         try {
 
-            //Delete image
-            await deleteObject(imageRef);
+            let imageURL;
 
-            //Create new image
-            await uploadBytes(imageRef,news.file);
-            const imageURL= await getDownloadURL(imageRef);
+            if(!news.image){
+                 imageURL=news.imageURL
+            }else{
 
+
+                //Delete image
+                 await deleteObject(imageRef);
+
+                //Create new image
+                await uploadBytes(imageRef,news.image);
+                 imageURL= await getDownloadURL(imageRef);
+
+            }
+            
             const news2={
                 id:news.id,
                 title:news.title,
