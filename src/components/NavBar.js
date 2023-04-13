@@ -13,9 +13,6 @@ import { AiFillSetting } from 'react-icons/ai';
 
 function NavBar({activeLink}) {
 
- 
-
-
     const {isUser, darkmode} = UserAuth();
 
     const {t,i18n}= useTranslate();
@@ -92,7 +89,7 @@ function NavBar({activeLink}) {
         <div className='relative z-50'>
         <nav className={`w-full h-[96px] py-7 ${fix? "bg-navbar-scroll dark:bg-navbar-scrollNight border-b filter border-navbar-border-scroll dark:border-navbar-scrollNight shadow-md backdrop:blur-lg":"bg-background dark:bg-backgroundNight"} fixed  flex flex-row items-center px-6 md:px-16 xl:px-40 3xl:px-60`}>
 
-            <div className={`text-lg font-semibold md:font-bold md:text-2xl text-heading dark:text-background ${isUser? "w-full":""}`}>
+            <div className={`text-lg font-semibold md:font-bold md:text-2xl text-heading dark:text-background ${isUser? "w-full":"w-auto"}`}>
                 <NavLink to='/' className={`transition-all pb-4 text-heading dark:text-background text-lg font-medium hover:text-primary-100 hover:border-b-2 ${activeLink === '/'? "border-b-2" : ""} border-secondary-100 uppercase`}>
                     {
                         darkMode ?

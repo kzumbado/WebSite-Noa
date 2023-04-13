@@ -66,5 +66,9 @@
     "404":{
         "message":"Esta página no existe o no se encuentra disponible. Por favor regresa al inicio.",
         "return":"Regresar a Inicio"
+    },
+    "403":{
+        "message":"No tienes permisos para permanecer en esta página",
+        "return":"Regresar a Inicio"
     }
 }

@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Error404 } from "./pages/Error404";
+import { Error403 } from "./pages/Error403";
 import OnLoadingPage from "./components/OnLoadingPage";
 import React, { useState, useCallback, useContext } from "react";
 import { Provider, useSelector } from 'react-redux';
@@ -28,12 +29,6 @@ function App() {
     }
   }, []));
 
-
-  
-
-  
-  
-
   return (
     <div className={`App bg-background dark:bg-backgroundNight ${darkmode ? "dark":""}`}>
       <UserContext.Provider value = {{isUser, darkmode}}>
@@ -46,7 +41,7 @@ function App() {
               <Route path="/aboutus" element={<React.Suspense fallback={<OnLoadingPage />}><LazyAboutUs /> </React.Suspense>} />
               <Route path="/contact" element={<React.Suspense fallback={<OnLoadingPage />}><LazyContact /> </React.Suspense>} />
               <Route path="/admin" element={<React.Suspense fallback={<OnLoadingPage />}><LazyLogin /> </React.Suspense>} />
-              <Route path="/admin/post" element={<React.Suspense fallback={<OnLoadingPage />}><LazyPost /> </React.Suspense>} />
+              <Route path="/post" element={<React.Suspense fallback={<OnLoadingPage />}>{isUser ?<LazyPost />:<Error403 /> }</React.Suspense>} />
               <Route path="*" element={<Error404 />} />
             </Routes>
           </BrowserRouter>

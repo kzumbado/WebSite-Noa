@@ -68,5 +68,9 @@
     "404":{
         "message":"This page does not exist or is not available. Please return to home page.",
         "return":"Back to Home"
+    },
+    "403":{
+        "message":"You don't have permission to stay in this page!",
+        "return":"Back to Home"
     }
 }

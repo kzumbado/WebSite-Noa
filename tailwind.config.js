@@ -14,6 +14,7 @@ module.exports = {
         "backgroundNight":"#2e2e36",
         "heading": "#2f2f2f",
         "headingNight": "#212127",
+        "popup": "rgba(0,0,0,0.40)",
         "overlay": "rgba(47, 47, 47, 0.4)",
         primary: {
           "100": "#335e57",
