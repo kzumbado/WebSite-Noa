@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import NavBar from "../components/NavBar";
 import Footer from '../components/Footer';
+import MemberCard from '../components/MemberCard';
 import {NavLink} from 'react-router-dom';
-import {FaTwitter, FaInstagram} from 'react-icons/fa';
+import { FaLinkedin } from 'react-icons/fa';
 import {AiOutlineGithub} from 'react-icons/ai';
 import VideoDisplay from '../components/VideoDisplay';
 import useTranslate from '../hooks/useTranslation';
@@ -66,7 +67,7 @@ import { startLoadingNews } from '../store/news/thunks';
             </p>
 
             <NavLink
-              to="#"
+              to="download"
               className="md:inline-flex items-center lg:mt-6 justify-center whitespace-nowrap rounded-md border-2 
                         border-primary-100 dark:border-primary-200 dark:hover:border-primary-100 px-10 py-2 text-base font-semibold text-primary-100 
                         shadow-sm hover:bg-primary-100 hover:text-white dark:hover:text-white transition-all dark:text-primary-200"
@@ -138,67 +139,59 @@ import { startLoadingNews } from '../store/news/thunks';
             {t("home.team")}
           </div>
 
-          <div className={` w-full flex flex-col items-center justify-center pt-8 space-y-5 lg:flex-row lg:space-y-0 lg:space-x-10 2xl:space-x-40 3xl:space-x-60 2xl:pt-14`}>
+          <div className={` w-full flex flex-wrap items-center justify-center pt-8 lg:flex-wrap 2xl:pt-14`}>
             
-            <div className='w-52 h-60 bg-primary-200 dark:bg-backgroundNight hover:scale-105 lg:w-60 lg:h-72 2xl:w-72 2xl:h-80 relative'>
-              <div className='w-full h-4/5 dark:opacity-90'>
-                <img className='object-cover w-full h-full' src='https://cdn.discordapp.com/attachments/676222082601844756/1068680681292583002/Captura_de_pantalla_2023-01-27_175514.png' alt=''></img>
-              </div>
+            <MemberCard
+              name="Bryan Díaz"
+              image="https://firebasestorage.googleapis.com/v0/b/noa-ads.appspot.com/o/memberProfiles%2FProfile_bryan.png?alt=media&token=2b4e61ca-ac90-4f3c-b768-0cd387955e96"
+              position="CEO"
+              github="https://github.com/brydiaz"
+              linkedin="https://www.linkedin.com/in/bryan-andrey-d%C3%ADaz-barrientos-655309218"
+            />
 
-              <div className='flex bg-primary-200 flex-row w-full h-1/5 items-center justify-center text-white font-semibold xl:text-xl'>
-                Alfonso Cambronero
-              </div>
+            <MemberCard
+              name="Raychell Arguedas"
+              image="https://firebasestorage.googleapis.com/v0/b/noa-ads.appspot.com/o/memberProfiles%2Fphoto_4965239403043728431_y.jpg?alt=media&token=fe056e74-e8c5-4701-9a74-db46a139841b"
+              position="COO"
+              github="https://github.com/arguedas03"
+              linkedin="https://www.linkedin.com/in/raychell-valeria-arguedas-bolivar-b7523a203"
+            />
 
-              <div className='absolute bottom-0 flex flex-row w-full h-1/5 items-center justify-center text-white font-semibold xl:text-xl bg-primary-100 opacity-0 hover:opacity-100 transition-all'>
-                <div className='flex flex-row w-full justify-evenly'>
-                <AiOutlineGithub className='w-5 h-5 md:w-6 md:h-6 text-white hover:text-secondary-100 hover:opacity-80 cursor-pointer'/>
-                <FaTwitter className='w-5 h-5 md:w-6 md:h-6 text-white hover:text-secondary-100 hover:opacity-80 cursor-pointer'/>
-                <FaInstagram className='w-5 h-5 md:w-6 md:h-6 text-white hover:text-secondary-100 hover:opacity-80 cursor-pointer'/>
-                </div>
-              </div>
-            </div>
+            <MemberCard
+              name="Kevin Zumbado"
+              image="https://firebasestorage.googleapis.com/v0/b/noa-ads.appspot.com/o/memberProfiles%2FIMG_1311.JPG?alt=media&token=ae26f4f3-9adf-416a-95ae-78e0576d8b1c"
+              position="CTO"
+              github="https://github.com/kzumbado"
+              linkedin="https://www.linkedin.com/in/kevin-zumbado-cruz-217ba1254"
+            />
 
-            <div className='w-52 h-60 bg-primary-200 dark:bg-backgroundNight hover:scale-105 lg:w-60 lg:h-72 2xl:w-72 2xl:h-80 relative'>
-              <div className='w-full h-4/5 dark:opacity-80'>
-                <img className='object-cover w-full h-full' src='https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=999&q=80' alt=''></img>
-              </div>
+            <MemberCard
+              name="Andres López"
+              image="https://firebasestorage.googleapis.com/v0/b/noa-ads.appspot.com/o/memberProfiles%2Fphoto_4965624910718282538_y.jpg?alt=media&token=a392fdfa-1255-4c80-9a89-6d52cdff8e6a"
+              position="VP of Operations"
+              github="https://github.com/andres016"
+              linkedin="https://www.linkedin.com/in/andres-lopez-599432198"
+            />
 
-              <div className='flex bg-primary-200 flex-row w-full h-1/5 items-center justify-center text-white font-semibold xl:text-xl'>
-                Carlos Trejos
-              </div>
+            <MemberCard
+              name="Fernando Ugalde"
+              image="https://images.unsplash.com/photo-1491349174775-aaafddd81942?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"
+              position="Chief Software Engineer"
+              github="https://github.com/fernandoug"
+              linkedin="#"
+            />
 
-              <div className='absolute bottom-0 flex flex-row w-full h-1/5 items-center justify-center text-white font-semibold xl:text-xl bg-primary-100 opacity-0 hover:opacity-100 transition-all'>
-                <div className='flex flex-row w-full justify-evenly'>
-                <AiOutlineGithub className='w-5 h-5 md:w-6 md:h-6 text-white hover:text-secondary-100 hover:opacity-80 cursor-pointer'/>
-                <FaTwitter className='w-5 h-5 md:w-6 md:h-6 text-white hover:text-secondary-100 hover:opacity-80 cursor-pointer'/>
-                <FaInstagram className='w-5 h-5 md:w-6 md:h-6 text-white hover:text-secondary-100 hover:opacity-80 cursor-pointer'/>
-                </div>
-              </div>
-            </div>
+            <MemberCard
+              name="Jailine González"
+              image="https://firebasestorage.googleapis.com/v0/b/noa-ads.appspot.com/o/memberProfiles%2Fphoto_4954517210462792705_y.jpg?alt=media&token=c9253e4f-2f0f-4349-b175-63eec554e700"
+              position="Chief Software Engineer"
+              github="https://github.com/flickerjai"
+              linkedin="https://www.linkedin.com/in/jailine-gonz%C3%A1lez-g%C3%B3mez-239aa08a?trk=contact-info"
+            />
 
-            <div className='w-52 h-60 bg-primary-200 dark:bg-backgroundNight hover:scale-105 lg:w-60 lg:h-72 2xl:w-72 2xl:h-80 relative'>
-              <div className='w-full h-4/5 dark:opacity-80'>
-                <img className='object-cover w-full h-full' src='https://images.unsplash.com/photo-1491349174775-aaafddd81942?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80' alt=''></img>
-              </div>
-
-              <div className='flex bg-primary-200 flex-row w-full h-1/5 items-center justify-center text-white font-semibold xl:text-xl'>
-                Isabel Castro
-              </div>
-
-              <div className='absolute bottom-0 flex flex-row w-full h-1/5 items-center justify-center text-white font-semibold xl:text-xl bg-primary-100 opacity-0 hover:opacity-100 transition-all'>
-                <div className='flex flex-row w-full justify-evenly'>
-                <AiOutlineGithub className='w-5 h-5 md:w-6 md:h-6 text-white hover:text-secondary-100 hover:opacity-80 cursor-pointer'/>
-                <FaTwitter className='w-5 h-5 md:w-6 md:h-6 text-white hover:text-secondary-100 hover:opacity-80 cursor-pointer'/>
-                <FaInstagram className='w-5 h-5 md:w-6 md:h-6 text-white hover:text-secondary-100 hover:opacity-80 cursor-pointer'/>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
-
-        
-
-        <Footer />
+      <Footer />
     </div>
     
   )

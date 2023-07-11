@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
 import {HiOutlineMail, HiOutlinePhone} from 'react-icons/hi';
-import {AiOutlineGithub} from 'react-icons/ai';
 import {FaFacebookF, FaTwitter, FaInstagram} from 'react-icons/fa';
 import TextareaAutosize from 'react-textarea-autosize';
 import useTranslate from '../hooks/useTranslation';
@@ -121,17 +120,12 @@ const Contact = () => {
               <div className="text-white font-semibold text-xl">Info</div>
                 <div className="w-full flex flex-row items-center space-x-3"> 
                   <HiOutlineMail className="w-7 h-7 text-white" />               
-                  <p className="text-white">biosoftware@email.com</p>
+                  <p className="text-white">softwaredevbios@gmail.com</p>
                 </div>
 
                 <div className="w-full flex flex-row items-center space-x-3"> 
                   <HiOutlinePhone className="w-7 h-7 text-white" />
                   <p className="text-white">+506 2222-2222</p>
-                </div>
-
-                <div className="w-full flex flex-row items-center space-x-3"> 
-                  <AiOutlineGithub className="w-7 h-7 text-white" />
-                  <p className="text-white">biosoftwaredev</p>
                 </div>
             </div>
 
@@ -147,17 +141,12 @@ const Contact = () => {
                   <div className="text-white font-semibold text-xl">Info</div>
                     <div className="w-full flex flex-row items-center space-x-3"> 
                       <HiOutlineMail className="w-7 h-7 text-white" />               
-                      <p className="text-white">biosoftware@email.com</p>
+                      <p className="text-white">softwaredevbios@gmail.com</p>
                     </div>
 
                     <div className="w-full flex flex-row items-center space-x-3"> 
                       <HiOutlinePhone className="w-7 h-7 text-white" />
-                      <p className="text-white">+506 2222-2222</p>
-                    </div>
-
-                    <div className="w-full flex flex-row items-center space-x-3"> 
-                      <AiOutlineGithub className="w-7 h-7 text-white" />
-                      <p className="text-white">biosoftwaredev</p>
+                      <p className="text-white">+506 8493-2248</p>
                     </div>
                 </div>
 

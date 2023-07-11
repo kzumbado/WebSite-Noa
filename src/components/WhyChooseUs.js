@@ -1,4 +1,5 @@
-import {IoStatsChartSharp,IoCardSharp} from 'react-icons/io5'
+import {BsFillFilePostFill} from 'react-icons/bs'
+import {BiDevices} from 'react-icons/bi'
 import useTranslate from '../hooks/useTranslation'
 
 const WhyChooseUs = () => {
@@ -19,11 +20,11 @@ const WhyChooseUs = () => {
         <div className='pt-16 w-full flex flex-col  space-y-5 items-center xl:flex-row xl:space-x-5  xl:space-y-0 xl:justify-center xl:pt-10'>
 
           <div className={`p-5 flex flex-col items-center bg-gray-300 dark:bg-headingNight h-auto w-5/5 rounded-2xl justify-evenly max-w-md`}>
-              <IoStatsChartSharp className='my-2 h-10 w-10 text-primary-200'/> 
+              <BiDevices className='my-2 h-10 w-10 text-primary-200'/> 
               
               <div className='flex flex-col font-bold text-heading text-center dark:text-background'>
                 {t("download.security")}
-                <span className={`font-normal text-gray-500 text-justify dark:text-navbar-scroll`}>
+                <span className={`font-normal text-gray-500 text-center dark:text-navbar-scroll pt-2`}>
                 {t("download.privacy")}
                 </span>
 
@@ -31,10 +32,10 @@ const WhyChooseUs = () => {
           </div>
 
           <div className={`p-5 flex flex-col items-center bg-gray-300 dark:bg-headingNight h-auto w-5/5 rounded-2xl justify-evenly max-w-md`}>
-              <IoCardSharp className='my-2 h-10 w-10 text-primary-200'/> 
+              <BsFillFilePostFill className='my-3 h-8 w-8 text-primary-200'/> 
               <div className='flex flex-col font-bold text-heading text-center dark:text-background'>
                 {t("download.morefocus")}
-                <span className={`font-normal  text-gray-500 mr-1 text-justify dark:text-navbar-scroll`}>
+                <span className={`font-normal  text-gray-500 mr-1 text-center dark:text-navbar-scroll pt-2`}>
                 {t("download.ensure")}
                 </span>
 

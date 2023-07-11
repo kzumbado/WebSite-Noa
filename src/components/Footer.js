@@ -14,7 +14,11 @@ function Footer() {
 
                 <div className='text-orange-200 w-auto flex flex-col justify-center items-center font-semibold'>
                     <div>
-                        LOGO Bios
+                        <img
+                            className='w-16 h-16'
+                            src='https://firebasestorage.googleapis.com/v0/b/noa-ads.appspot.com/o/assets%2FLogos.jpg?alt=media&token=d61474ce-d750-45dc-ba88-806a996cf92f'
+                            alt=''
+                        ></img>
                     </div>
                     
                     <div className='text-gray-300 opacity-40 pt-1 text-sm font-light text-center'>

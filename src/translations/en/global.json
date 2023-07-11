@@ -19,25 +19,25 @@
         
     },
     "home":{
-        "title":"The future of commerce.",
-        "now":"Now.",
-        "h-paragraph":"A popular idea of late has been to have leaders focus on developing their strengths and largely ignore their weaknesses. When is that good advice? For the second and third groups, or those leaders without any detracting weakness.",
-        "readMore":"Read more",
+        "title":"Find what you need, ",
+        "now":" when you need it.",
+        "h-paragraph":"When using Noa, users can search for a wide range of services, from healthcare professionals to beauty services, home services, education, and much more. The goal of Noa is to make service searching efficient and hassle-free, saving time and effort for the users.",
+        "readMore":"Try it Now!",
         "team":"Meet our Team"
     },
 
 
     "download":{
-        "title":"The world's most powerful crypto app", 
-        "paragraph":"The world's most powerful application  is now available on Apple Store and Google Play, click on the link below.",
+        "title":"Join to Noa's Community!", 
+        "paragraph":"You can be part of Noa's initiative. Help us grow, be part of the progress. Available now on Google Play and App Store.",
         "appStore":"Download on the",
         "Google":"Get it on",
         "why":"Why choose us",
-        "crytography":"Cryptography to secure online transactions. Much of the interes in these unregaluted.",
-        "security":"Security by Default",
-        "privacy":"Enable privacy mode and \n app locking to protect your data",
-        "morefocus":"More focus UI",
-        "ensure":"Enter your information ensure your details safe and more secure"
+        "crytography":"We reach where other search engines don't.",
+        "security":"User Friendly",
+        "privacy":"With Noa you are just a few clicks away from finding what you are looking for.",
+        "morefocus":"Search it or Post it",
+        "ensure":"With Noa you can not only search for what you need but also advertise your services."
     },
 
     "aboutUs":{

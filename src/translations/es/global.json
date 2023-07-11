@@ -19,24 +19,24 @@
         "rights":"© 2023 Bios - Todos los derechos Reservados"
     },
     "home":{
-        "title":"El futuro de los comercios.",
-        "now":"Ahora.",
-        "h-paragraph":"Últimamente, una idea popular era que los líderes se enfocaran en el desarrollo de sus fortalezas y excluyeran sus debilidades. ¿En qué casos es esto un buen consejo? Para los grupos dos y tres, o para aquellos líderes que no poseen debilidades devaluadoras.",
-        "readMore":"Leer más",
+        "title":"Encuentra lo que necesitas, ",
+        "now":"cuando lo necesitas.",
+        "h-paragraph":"Al utilizar Noa, los usuarios pueden buscar una amplia variedad de servicios, desde profesionales de la salud hasta servicios de belleza, pasando por servicios de hogar, educación y mucho más. El objetivo de Noa es hacer que la búsqueda de servicios sea eficiente y sin complicaciones, ahorrando tiempo y esfuerzo a los usuarios.",
+        "readMore":"Pruébalo Ahora",
         "team":"Conoce a nuestro Equipo"
     },
 
     "download":{
-        "title":"La app de crypto mas poderosa del mundo",
-        "paragraph":"La aplicacion mas poderosa del mundo ya esta disponible en Apple Store y Google Play, presiona en el enlance",
+        "title":"¡Únete a la comunidad de Noa!",
+        "paragraph":"Puedes formar parte de la iniciativa de Noa. Ayúdanos a crecer, sé parte del progreso. Disponible ya en Google Play y en App Store.",
         "appStore":"Descarga en la",
         "Google":"Obtener en",
-        "why":"¿Por que nosotros?",
-        "crytography":"Usa la criptografía para asegurar las transacciones en línea. Gran parte del interés en estas.",
-        "security":"Seguridad por defecto",
-        "privacy":"Activa el modo seguridad y para proteger tus datos.",
-        "morefocus":"Mejor enfoque en IU",
-        "ensure":"Ingresa tus datos garantizar sus datos seguros"
+        "why":"¿Por qué nosotros?",
+        "crytography":"Llegamos donde no llegan los otros motores de búsquedas.",
+        "security":"Fácil de Usar",
+        "privacy":"Con Noa estás a unos cuantos clicks de encontrar lo que buscas.",
+        "morefocus":"Busca y Anuncia",
+        "ensure":"Con Noa no solo puedes buscar lo que necesites sino también anunciar tus servicios."
     },
     "aboutUs":{
         "we":"Nosotros",
